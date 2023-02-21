@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../../images/logo.png.webp'
 
 const Header = () => {
 
@@ -15,8 +16,8 @@ const Header = () => {
 
 
     return (
-        <div>
-            <div className="navbar bg-[#fff] container mx-auto  ">
+        <div className='py-2 w-full bg-[#fff]'>
+            <div className="navbar bg-[#fff]  mx-auto lg:px-6 xl:container ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -88,7 +89,7 @@ const Header = () => {
                         style={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         } className="btn btn-ghost normal-case text-xl">
-                        daisyUI
+                       <img src={logo} alt="" />
                     </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">

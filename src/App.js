@@ -12,6 +12,7 @@ import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 import Header from './components/Header/Header';
 import styles from "./index.css"
+import HeroSection from './components/Home/HeroSection';
 
 function App() {
   return (
