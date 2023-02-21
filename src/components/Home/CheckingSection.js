@@ -47,7 +47,7 @@ const CheckingSection = () => {
                         <option value="6">6</option>
                     </select>
 
-                    <input className='border h-12 px-4 bg-[#1CC3B2] text-white font-semibold' type="submit" value='Check Availibility' />
+                    <input className='btn border-none rounded-none h-12 px-4 bg-[#1CC3B2] text-white font-semibold ' type="submit" value='Check Availibility' />
                 </form>
             </div>
         </div>
