@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home/Home';
@@ -9,10 +10,13 @@ import Contact from './components/Contact/Contact';
 import SingleRoom from './components/Rooms/SingleRoom';
 import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
+import Header from './components/Header/Header';
+import styles from "./index.css"
 
 function App() {
   return (
     <div className="App">
+       <Header/>
        <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/about' element={<AboutUs/>} />
