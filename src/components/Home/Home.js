@@ -2,6 +2,7 @@ import React from 'react';
 import AboutSection from './AboutSection';
 import CheckingSection from './CheckingSection';
 import HeroSection from './HeroSection';
+import RoomSection from './RoomSection';
 
 
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
             <HeroSection/>
             <CheckingSection/>
             <AboutSection/>
+            <RoomSection/>
         </div>
     );
 };
