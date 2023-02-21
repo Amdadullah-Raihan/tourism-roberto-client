@@ -153,10 +153,10 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <NavLink to="messages"
+                    <NavLink to="/rooms"
                         style={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        } className="btn">Get started</NavLink>
+                        } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i class="fa-solid fa-arrow-right ml-2"></i> </NavLink>
                 </div>
             </div>
         </div>
