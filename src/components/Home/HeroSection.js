@@ -16,7 +16,7 @@ const HeroSection = () => {
                     <h1 className="mb-5 text-5xl font-bold">Welcome to Roberto</h1>
                     <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <Link to='/rooms'>
-                        <button className="btn bg-transparent border-[#1CC3B2] border-[2px] rounded-none">Discover Now  <i class="fa-solid fa-arrow-right ml-2"></i></button>
+                        <button className="btn bg-transparent border-[#1CC3B2] border-[2px] rounded-none">Discover Now  <i className="fa-solid fa-arrow-right ml-2"></i></button>
                     </Link>
                 </div>
             </div>

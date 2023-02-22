@@ -156,7 +156,7 @@ const Header = () => {
                     <NavLink to="/rooms"
                         style={({ isActive }) =>
                             isActive ? activeStyle : undefined
-                        } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i class="fa-solid fa-arrow-right ml-2"></i> </NavLink>
+                        } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i className="fa-solid fa-arrow-right ml-2"></i> </NavLink>
                 </div>
             </div>
         </div>

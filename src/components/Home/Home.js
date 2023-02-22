@@ -3,6 +3,7 @@ import AboutSection from './AboutSection';
 import CheckingSection from './CheckingSection';
 import HeroSection from './HeroSection';
 import RoomSection from './RoomSection';
+import TestimonialsSection from './TestimonialsSection';
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
             <CheckingSection/>
             <AboutSection/>
             <RoomSection/>
+            <TestimonialsSection/>
         </div>
     );
 };

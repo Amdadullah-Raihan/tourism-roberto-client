@@ -157,7 +157,7 @@
             autoplay: true,
             smartSpeed: 1500,
             nav: true,
-            navText: [('<i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous'), ('Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>')]
+            navText: [('<i className="fa fa-long-arrow-left" aria-hidden="true"></i> Previous'), ('Next <i className="fa fa-long-arrow-right" aria-hidden="true"></i>')]
         });
 
         roomSlides.on('translate.owl.carousel', function () {
@@ -232,7 +232,7 @@
     if ($.fn.scrollUp) {
         roberto_window.scrollUp({
             scrollSpeed: 1500,
-            scrollText: '<i class="arrow_carrot-up"</i>'
+            scrollText: '<i className="arrow_carrot-up"</i>'
         });
     }
 
