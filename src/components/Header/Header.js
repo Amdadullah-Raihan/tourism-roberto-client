@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png.webp'
 
 const Header = () => {
-
+    const users = true;
 
     let activeStyle = {
         textDecoration: "",
@@ -150,6 +150,16 @@ const Header = () => {
                             </NavLink>
 
                         </li>
+                        <li>
+                            <NavLink
+                                to="/dashboard"
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }>
+                               Dashboard
+                            </NavLink>
+
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -158,6 +168,16 @@ const Header = () => {
                             isActive ? activeStyle : undefined
                         } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i className="fa-solid fa-arrow-right ml-2"></i> </NavLink>
                 </div>
+                {
+                    users && <div className="dropdown dropdown-end ">
+                        <label tabIndex={0} className="btn w-12 h-13 ml-2 rounded-3xl">user</label>
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 bg-slate-50   mt-6">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </div>
+                }
+
             </div>
         </div>
     );

@@ -13,6 +13,7 @@ import NotFound from './components/NotFound/NotFound';
 import Header from './components/Header/Header';
 import styles from "./index.css"
 import HeroSection from './components/Home/HeroSection';
+import Dashboard from './components/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
           <Route path='/blogs' element={<Blogs/>} />
           <Route path='/contact' element={<Contact/>} />
 
+          {/* dashboard */}
+          <Route path='/dashboard' element={<Dashboard/>}/>
           {/* private routes starts */}
 
           <Route path=' ' element={<PrivateRoute></PrivateRoute>} />

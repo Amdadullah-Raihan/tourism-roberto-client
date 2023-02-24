@@ -1,11 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const PrivateRoute = () => {
-    return (
-        <div>
-            private route
-        </div>
-    );
-};
+  return (
+    <div>PrivateRoute</div>
+  )
+}
 
 export default PrivateRoute;
