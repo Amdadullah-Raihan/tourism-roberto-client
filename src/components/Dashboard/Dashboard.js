@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink, Outlet, Route, Routes } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import AddRooms from './AddRooms';
 import ManageRooms from './ManageRooms';
 
 const Dashboard = () => {
-
+    useTitle("Admin Dashboard -Roberto")
 
     let activeStyle = {
         color:"#207FEE",
