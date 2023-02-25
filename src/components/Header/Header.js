@@ -12,7 +12,7 @@ const Header = () => {
         // fontWeight:"bold"
     };
 
-    let activeClassName = "underline";
+    // let activeClassName = "underline";
 
 
     return (
@@ -170,8 +170,10 @@ const Header = () => {
                 </div>
                 {
                     users && <div className="dropdown dropdown-end ">
-                        <label tabIndex={0} className="btn w-12 h-13 ml-2 rounded-3xl">user</label>
-                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 bg-slate-50   mt-6">
+                        <label tabIndex={0} className="btn bg-teal-500 border-none w-12 h-12 ml-3 rounded-3xl">
+                            <img src="" alt="user" />
+                        </label>
+                        <ul tabIndex={0} className="dropdown-content menu p-2 shadow rounded-box w-52 bg-slate-50  mt-5 ">
                             <li><a>Item 1</a></li>
                             <li><a>Item 2</a></li>
                         </ul>

@@ -30,10 +30,10 @@ function App() {
           <Route path='/contact' element={<Contact/>} />
 
           {/* dashboard */}
-          <Route path='/dashboard' element={<Dashboard/>}/>
+          <Route path='/dashboard/*' element={<Dashboard/>}/>
           {/* private routes starts */}
 
-          <Route path=' ' element={<PrivateRoute></PrivateRoute>} />
+          {/* <Route path=' ' element={<PrivateRoute></PrivateRoute>} /> */}
           
           {/* private routes ends */}
 
