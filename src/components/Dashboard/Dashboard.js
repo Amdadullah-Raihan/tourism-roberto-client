@@ -20,18 +20,18 @@ const Dashboard = () => {
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     }>
-                    <i class="fa-solid fa-plus mr-2 "></i>  Add Rooms
+                    <i className="fa-solid fa-plus mr-2 "></i>  Add Rooms
                 </NavLink>
                 <NavLink
                     to="/dashboard/manage-rooms"
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     } >
-                    <i class="fa-solid fa-gear mr-2"></i> Manage Rooms
+                    <i className="fa-solid fa-gear mr-2"></i> Manage Rooms
                 </NavLink>
 
             </div>
-            <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4'>
+            <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>
                 <Routes>
                     <Route path='/' element={<AddRooms/>}/>
                     <Route path='/add-rooms' element={<AddRooms/>}/>
