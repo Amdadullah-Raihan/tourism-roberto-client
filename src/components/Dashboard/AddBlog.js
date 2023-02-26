@@ -7,7 +7,7 @@ import useRichTextEditor from '../../hooks/useRichTextEditor';
 
 
 
-const AddRooms = () => {
+const AddBlog = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
@@ -23,7 +23,7 @@ const AddRooms = () => {
         <div className='bg-white w-full py-8 rounded-2xl max-w-[900px] text-start' >
 
             <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
-                <label >Room's Title</label>
+                <label >Blogs's Title</label>
                 <input className='border px-4 w-full mb-4 h-12 ' {...register("title")} required /> <br />
                 {/* <input className='border px-4 w-full mb-4 h-12 ' {...register("lastName")} required /> */}
                 {/* <br /> */}
@@ -39,9 +39,10 @@ const AddRooms = () => {
 
             </form>
 
-            <div className='bg-teal-100 py-12 px-6'>
+            <div className='border min-h-[100px]'>
+                <p className='px-6 py-2 bg-blue-100 inline'>Blog Preview</p>
                 <div
-
+                    className='px-6'
                     dangerouslySetInnerHTML={createMarkup(convertedContent)}>
                 </div>
             </div>
@@ -49,4 +50,4 @@ const AddRooms = () => {
     )
 }
 
-export default AddRooms
+export default AddBlog
