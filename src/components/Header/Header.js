@@ -7,7 +7,7 @@ const Header = () => {
 
     let activeStyle = {
         textDecoration: "",
-        // backgraoundColor:"#fff",
+        backgraoundColor:"#fff",
         // color:'#1CC3B2',
         // fontWeight:"bold"
     };
@@ -170,7 +170,7 @@ const Header = () => {
                             <hr className='my-4 ' />
                             <li className='hover:bg-teal-100'>
                                 <Link to='/dashboard'>
-                                    <span class="material-symbols-outlined text-teal-500">
+                                    <span className="material-symbols-outlined text-teal-500">
                                         dashboard
                                     </span>
                                     Dashboard
@@ -178,7 +178,7 @@ const Header = () => {
                             </li>
                             <li className='hover:bg-teal-100'>
                                 <a>
-                                    <span class="material-symbols-outlined text-teal-500">
+                                    <span className="material-symbols-outlined text-teal-500">
                                         logout
                                     </span>
                                     Log Out

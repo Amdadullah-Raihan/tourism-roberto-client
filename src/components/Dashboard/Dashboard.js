@@ -8,8 +8,9 @@ const Dashboard = () => {
     useTitle("Admin Dashboard -Roberto")
 
     let activeStyle = {
-        color:"#19C5AF",
-        // fontWeight:"500"
+        color: "#19C5AF",
+        // fontWeight:"500",
+        // backgroundColor:"#19C5AF"
     };
 
     let activeClassName = "underline";
@@ -29,17 +30,17 @@ const Dashboard = () => {
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     } >
-                    <i class="fa-solid fa-sliders mr-2"></i> Manage Rooms
+                    <i className="fa-solid fa-sliders mr-2"></i> Manage Rooms
                 </NavLink>
 
             </div>
             <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>
                 <Routes>
-                    <Route path='/' element={<AddRooms/>}/>
-                    <Route path='/add-rooms' element={<AddRooms/>}/>
-                    <Route path='/manage-rooms' element={<ManageRooms/>}/>
+                    <Route path='/' element={<AddRooms />} />
+                    <Route path='/add-rooms' element={<AddRooms />} />
+                    <Route path='/manage-rooms' element={<ManageRooms />} />
                 </Routes>
-                <Outlet/>
+                <Outlet />
             </div>
         </div>
     );
