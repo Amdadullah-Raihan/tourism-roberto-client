@@ -8,7 +8,8 @@ const Dashboard = () => {
     useTitle("Admin Dashboard -Roberto")
 
     let activeStyle = {
-        color:"#207FEE",
+        color:"#19C5AF",
+        // fontWeight:"500"
     };
 
     let activeClassName = "underline";
