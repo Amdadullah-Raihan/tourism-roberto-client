@@ -28,7 +28,7 @@ const Dashboard = () => {
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     } >
-                    <i className="fa-solid fa-gear mr-2"></i> Manage Rooms
+                    <i class="fa-solid fa-sliders mr-2"></i> Manage Rooms
                 </NavLink>
 
             </div>

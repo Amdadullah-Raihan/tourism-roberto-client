@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/logo.png.webp'
 
 const Header = () => {
@@ -89,7 +89,7 @@ const Header = () => {
                         style={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         } className="btn btn-ghost normal-case text-xl">
-                       <img src={logo} alt="" />
+                        <img src={logo} alt="" />
                     </NavLink>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -150,16 +150,7 @@ const Header = () => {
                             </NavLink>
 
                         </li>
-                        <li>
-                            <NavLink
-                                to="/dashboard"
-                                style={({ isActive }) =>
-                                    isActive ? activeStyle : undefined
-                                }>
-                               Dashboard
-                            </NavLink>
-
-                        </li>
+                       
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -174,8 +165,25 @@ const Header = () => {
                             <img src="" alt="user" />
                         </label>
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow rounded-box w-52 bg-slate-50  mt-5 ">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
+                            <img src="" alt="profile" className='w-16 h-16 mx-auto p-12 border-2 rounded-full mb-2 border-teal-200' />
+                            <h3>Amdadul Islam</h3>
+                            <hr className='my-4 ' />
+                            <li className='hover:bg-teal-100'>
+                                <Link to='/dashboard'>
+                                    <span class="material-symbols-outlined text-teal-500">
+                                        dashboard
+                                    </span>
+                                    Dashboard
+                                </Link>
+                            </li>
+                            <li className='hover:bg-teal-100'>
+                                <a>
+                                    <span class="material-symbols-outlined text-teal-500">
+                                        logout
+                                    </span>
+                                    Log Out
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 }
