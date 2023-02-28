@@ -7,46 +7,147 @@ import useReactQuill from '../../hooks/useReactQuil';
 
 
 
+const CreateBlog = () => {
+    const [title, setTitle] = useState("Rooms's Title");
+    const [content, setContent] = useState('')
+    const [imgUrl, setImgUrl] = useState('')
 
-
-const AddRooms = () => {
 
     const { register, handleSubmit } = useForm();
     const [modules, formates] = useReactQuill();
-    const onSubmit = data => console.log(data);
 
 
-   
+    //handle img change and upload img to imgbb and get img url
+    const handleImgChange = (e) => {
+
+        const img = e.target.files[0];
+        const formData = new FormData();
+
+        formData.append('image', img)
+        console.log(formData);
+
+        const url = "https://api.imgbb.com/1/upload?&key=8484f85b7788ffca18f1fd5d203bc0fa";
+
+        fetch(url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+
+                setImgUrl(imgData.data.display_url)
+
+            }).catch(err => {
+
+                console.log(err);
+
+            }
+
+            )
+
+
+    }
+
+    //handle form submit
+    const onSubmit = data => {
+        // console.log(data);
+        setTitle(data.title)
+        // const formData = new FormData();
+
+        // formData.append("title", title)
+        // formData.append("content", content)
+        // formData.append("imgUrl", imgUrl)
+        const blogData = {
+            "title": title,
+            "imgUrl": imgUrl,
+            "content": content
+        }
+        console.log(blogData);
+        const url = 'http://localhost:5000/create-room'
+        fetch(url, {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(blogData)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.insertedId) {
+                    alert("Room added successfully!!")
+                    // <div className="toast toast-start">
+                    //     <div className="alert py-6 bg-teal-500">
+                    //         <span>Blog added successfully!!</span>
+                    //     </div>
+                    // </div>
+
+                }
+                else {
+                    alert("Room coudn't be added")
+                }
+            })
+
+    };
+
+    //create html from content 
+    function createMarkup(html) {
+        return {
+            __html: DOMPurify.sanitize(html)
+        }
+    }
+
+
     return (
-        <div className='bg-white w-full py-8 rounded-2xl max-w-[900px] text-start' >
-
-            <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
-                <label >Room's Title</label>
-                <input className='border px-4 w-full mb-4 h-12 ' {...register("title")} required /> <br />
-                {/* <input className='border px-4 w-full mb-4 h-12 ' {...register("lastName")} required /> */}
-                {/* <br /> */}
-
-                <div className='h-full w-full mb-4 '>
-                    <header className='font-semibold uppercase mby-2 text-start'>Add Room's Descriptions</header>
-                    {/* <MyRichTextEditor/> */}
-                    <ReactQuill
-                    modules={modules}
-                    formats={formates}
-                    
-                    />
-                </div>
-
-                <input className='bg-teal-400 text-white px-4 w-full mb-4 h-12 ' type="submit" />
+        <div  >
 
 
-            </form>
+            <div className='bg-white w-full  rounded-2xl max-w-[900px] '>
+                <h1 className='text-2xl uppercase text-teal-500 font-semibold pt-6'> Add a Room </h1>
+                <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
 
-            <div className='bg-teal-100 py-12 px-6'>
-                <div>
+                    <div className='flex gap-4'>
+                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full mb-4 h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> <br />
+                        {/* <input className='border px-4 w-full mb-4 h-12 ' {...register("lastName")} required /> */}
+                        {/* <br /> */}
+                        <input type="file" className="file-input file-input-bordered w-full " accept='imgages/*' onChange={handleImgChange} />
+                    </div>
+                    <div className='h-full w-full mb-4 text-start'>
+                        <header className='font-semibold uppercase  text-start'>add room's description</header>
+
+                        <ReactQuill
+
+                            modules={modules}
+                            formats={formates}
+                            value={content}
+                            theme='snow'
+
+                            onChange={(value) => setContent(value)}
+
+                        />
+
+
+                    </div>
+
+                    <div className='text-end'>
+                        <input className='btn border-none rounded-none bg-teal-400 text-white px-4 w-52 mb-4 h-12 cursor-pointer  ' type="submit" />
+
+                    </div>
+
+                </form>
+            </div>
+
+            <div className='bg-white w-full min-h-[200px] rounded-2xl max-w-[900px] text-start mt-4 py-6'>
+                <p className='px-6 text-red-500 text-xl inline uppercase'>Room Preview</p>
+                <div className='px-6 py-2'>
+                    <img src={imgUrl} alt="" className='mb-6 ' />
+                    <h3 className='py-2 text-2xl'>{title}</h3>
+                    <div
+                        dangerouslySetInnerHTML={createMarkup(content)}>
+
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
-export default AddRooms
+export default CreateBlog;
