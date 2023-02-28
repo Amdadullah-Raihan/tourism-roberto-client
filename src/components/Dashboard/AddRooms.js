@@ -3,6 +3,7 @@ import DOMPurify from 'dompurify';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill';
+import useCreateMarkUp from '../../hooks/CreateMarkUp';
 import useReactQuill from '../../hooks/useReactQuil';
 
 
@@ -15,6 +16,7 @@ const CreateBlog = () => {
 
     const { register, handleSubmit } = useForm();
     const [modules, formates] = useReactQuill();
+ 
 
 
     //handle img change and upload img to imgbb and get img url
@@ -89,11 +91,7 @@ const CreateBlog = () => {
     };
 
     //create html from content 
-    function createMarkup(html) {
-        return {
-            __html: DOMPurify.sanitize(html)
-        }
-    }
+   
 
 
     return (
@@ -141,7 +139,7 @@ const CreateBlog = () => {
                     <img src={imgUrl} alt="" className='mb-6 ' />
                     <h3 className='py-2 text-2xl'>{title}</h3>
                     <div
-                        dangerouslySetInnerHTML={createMarkup(content)}>
+                        dangerouslySetInnerHTML={useCreateMarkUp(content)}>
 
                     </div>
                 </div>
