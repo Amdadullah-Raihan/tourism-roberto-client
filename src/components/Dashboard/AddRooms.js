@@ -12,11 +12,11 @@ const CreateBlog = () => {
     const [title, setTitle] = useState("Rooms's Title");
     const [content, setContent] = useState('')
     const [imgUrl, setImgUrl] = useState('')
-    const [roomSize, setRoomSize] = useState('')
-    const [capacity, setCapacity] = useState('')
-    const [bedType, setBedType] = useState('')
-    const [roomServices, setRoomServices] = useState('')
-    const [pricePerDay, setPricePerDay] = useState('')
+    const [roomSize, setRoomSize] = useState(0)
+    const [capacity, setCapacity] = useState(0)
+    const [bedType, setBedType] = useState("kings bed")
+    const [roomServices, setRoomServices] = useState('wifi, televison, air conditionar etc. ')
+    const [pricePerDay, setPricePerDay] = useState(0)
     
 
     const { register, handleSubmit } = useForm();
@@ -63,6 +63,7 @@ const CreateBlog = () => {
         setCapacity(data.capacity)
         setRoomServices(data.roomServices)
         setRoomSize(data.roomSize)
+        setPricePerDay(data.pricePerDay)
         // const formData = new FormData();
 
         // formData.append("title", title)
@@ -117,12 +118,12 @@ const CreateBlog = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
 
                     <div className='grid grid-cols-2 gap-4'>
-                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> 
-                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("pricePerDay")} required placeholder="Enter Room's price per day" /> 
-                        <input onChange={(e) => setRoomSize(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("size")} required placeholder="Enter Room's in square feet" /> 
-                        <input onChange={(e) => setCapacity(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("capacity")} required placeholder="Enter Room's capacity " /> 
-                        <input onChange={(e) => setBedType(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("bedType")} required placeholder="Enter Room's bed type" /> 
-                        <input onChange={(e) => setRoomServices(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("roomServices")} required placeholder="Enter Room's services" /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("pricePerDay")} required placeholder="Enter Room's price per day" /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("roomSize")} required placeholder="Enter Room's in square feet" /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("capacity")} required placeholder="Enter Room's capacity " /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' {...register("bedType")} required placeholder="Enter Room's bed type" /> 
+                        <input  className='border px-4 w-full  h-12 rounded-md' {...register("roomServices")} required placeholder="Enter Room's services" /> 
                        
                         <input type="file" className="file-input file-input-bordered w-full " accept='imgages/*' onChange={handleImgChange} />
                     </div>

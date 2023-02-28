@@ -11,7 +11,7 @@ const Rooms = () => {
     useTitle("Rooms- Roberto")
     const [rooms, setRooms] = useState([]);
     console.log(rooms);
-    useCreateMarkUp()
+   
 
     useEffect(()=>{
         fetch("http://localhost:5000/rooms")
@@ -34,10 +34,19 @@ const Rooms = () => {
                             <img src={room.imgUrl} alt="" className='w-full overflow-hidden rounded-l-xl max-h-[254px]' />
                         </div>
                         <div className="card-body">
-                            <h2 className="text-4xl text-start capitalize">{room.title}</h2>
-                            <p
+                            <div>
+                                <h2 className="text-2xl text-start capitalize">{room.title}</h2>
+                                <h1><span className='text-teal-500 text-xl font-semibold'>{room.pricePerDay}$</span> <span className='text-gray-500'>/Day</span> </h1>
+                               <div className='text-start grid grid-cols-2 gap-y-10 mt-4'>
+                                    <p><span>size:</span>{room.roomSize}</p>
+                                    <p><span>Capacity:</span>{room.capacity}</p>
+                                    <p><span>Bed:</span>{room.bedType}</p>
+                                    <p><span>services:</span>{room.roomServices}</p>
+                               </div>
+                            </div>
+                            {/* <p
                             className='text-start'
-                            dangerouslySetInnerHTML={CreateMarkUp(room.content)}></p>
+                            dangerouslySetInnerHTML={CreateMarkUp(room.content)}></p> */}
                             <div className="card-actions justify-end">
                                 <Link to={`rooms/${room._id}`} className="text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></Link>
                             </div>
