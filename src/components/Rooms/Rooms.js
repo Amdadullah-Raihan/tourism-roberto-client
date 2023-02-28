@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CreateMarkUp from '../../hooks/CreateMarkUp';
 import useCreateMarkUp from '../../hooks/CreateMarkUp';
 
@@ -22,20 +23,23 @@ const Rooms = () => {
     },[])
 
     return (
-        <div className='container px-16 py-16'>
+        <div className='container p-6 lg:px-16 lg:py-16\'>
           
             {
                 rooms?.map(room =>
 
-                    <div className="card lg:card-side bg-base-100 max-h-[300px]">
-                        <figure className='rounded-lg' ><img src={room.imgUrl} className='ronded-lg' alt="Album" /></figure>
+                    <div className="flex px-0 bg-base-50 md:max-w-[700px] md:max-h-[254px] rounded-xl mb-8">
+                       
+                        <div className='bg-cover w-full md:w-[50%] min-h-[300px]'>
+                            <img src={room.imgUrl} alt="" className='w-full overflow-hidden rounded-l-xl max-h-[254px]' />
+                        </div>
                         <div className="card-body">
-                            <h2 className="card-title text-4xl text-start capitalize">{room.title}</h2>
+                            <h2 className="text-4xl text-start capitalize">{room.title}</h2>
                             <p
                             className='text-start'
                             dangerouslySetInnerHTML={CreateMarkUp(room.content)}></p>
                             <div className="card-actions justify-end">
-                                <button className="bg-white text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></button>
+                                <Link to={`rooms/${room._id}`} className="text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></Link>
                             </div>
                         </div>
                     </div>
