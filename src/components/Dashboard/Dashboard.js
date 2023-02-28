@@ -20,13 +20,6 @@ const Dashboard = () => {
         <div className='flex h-full'>
             <div className='dashboard-left flex flex-col w-[25vw] mt-6 leading-10 text-start p-12'>
                 <NavLink
-                    to='/dashboard/add-room'
-                    style={({ isActive }) =>
-                        isActive ? activeStyle : undefined
-                    }>
-                    <i className="fa-solid fa-plus mr-2 "></i>  Add Room
-                </NavLink>
-                <NavLink
                     to='/dashboard/add-blog'
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
@@ -40,6 +33,14 @@ const Dashboard = () => {
                     } >
                     <i className="fa-solid fa-sliders mr-2"></i> Manage Rooms
                 </NavLink>
+                <NavLink
+                    to='/dashboard/add-room'
+                    style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                    }>
+                    <i className="fa-solid fa-plus mr-2 "></i>  Add Room
+                </NavLink>
+                
 
             </div>
             <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>

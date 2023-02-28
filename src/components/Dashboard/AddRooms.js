@@ -2,7 +2,8 @@
 import DOMPurify from 'dompurify';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import useRichTextEditor from '../../hooks/useRichTextEditor';
+import ReactQuill from 'react-quill';
+
 
 
 
@@ -12,13 +13,8 @@ const AddRooms = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
 
-    const [MyRichTextEditor, convertedContent] = useRichTextEditor();
 
-    function createMarkup(html) {
-        return {
-            __html: DOMPurify.sanitize(html)
-        }
-    }
+   
     return (
         <div className='bg-white w-full py-8 rounded-2xl max-w-[900px] text-start' >
 
@@ -30,8 +26,8 @@ const AddRooms = () => {
 
                 <div className='h-full w-full mb-4 '>
                     <header className='font-semibold uppercase mby-2 text-start'>Add Room's Descriptions</header>
-                    <MyRichTextEditor />
-
+                    {/* <MyRichTextEditor/> */}
+                    <ReactQuill/>
                 </div>
 
                 <input className='bg-teal-400 text-white px-4 w-full mb-4 h-12 ' type="submit" />
@@ -40,9 +36,7 @@ const AddRooms = () => {
             </form>
 
             <div className='bg-teal-100 py-12 px-6'>
-                <div
-
-                    dangerouslySetInnerHTML={createMarkup(convertedContent)}>
+                <div>
                 </div>
             </div>
         </div>
