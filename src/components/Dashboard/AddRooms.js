@@ -12,7 +12,12 @@ const CreateBlog = () => {
     const [title, setTitle] = useState("Rooms's Title");
     const [content, setContent] = useState('')
     const [imgUrl, setImgUrl] = useState('')
-
+    const [roomSize, setRoomSize] = useState('')
+    const [capacity, setCapacity] = useState('')
+    const [bedType, setBedType] = useState('')
+    const [roomServices, setRoomServices] = useState('')
+    const [pricePerDay, setPricePerDay] = useState('')
+    
 
     const { register, handleSubmit } = useForm();
     const [modules, formates] = useReactQuill();
@@ -54,6 +59,10 @@ const CreateBlog = () => {
     const onSubmit = data => {
         // console.log(data);
         setTitle(data.title)
+        setBedType(data.bedType)
+        setCapacity(data.capacity)
+        setRoomServices(data.roomServices)
+        setRoomSize(data.roomSize)
         // const formData = new FormData();
 
         // formData.append("title", title)
@@ -61,6 +70,11 @@ const CreateBlog = () => {
         // formData.append("imgUrl", imgUrl)
         const blogData = {
             "title": title,
+            "pricePerDay":pricePerDay,
+            "roomSize":roomSize,
+            "capacity":capacity,
+            "bedType":bedType,
+            "roomServices":roomServices,
             "imgUrl": imgUrl,
             "content": content
         }
@@ -102,10 +116,14 @@ const CreateBlog = () => {
                 <h1 className='text-2xl uppercase text-teal-500 font-semibold pt-6 '> Add a Room </h1>
                 <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
 
-                    <div className='flex gap-4'>
-                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full mb-4 h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> <br />
-                        {/* <input className='border px-4 w-full mb-4 h-12 ' {...register("lastName")} required /> */}
-                        {/* <br /> */}
+                    <div className='grid grid-cols-2 gap-4'>
+                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> 
+                        <input onChange={(e) => setTitle(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("pricePerDay")} required placeholder="Enter Room's price per day" /> 
+                        <input onChange={(e) => setRoomSize(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("size")} required placeholder="Enter Room's in square feet" /> 
+                        <input onChange={(e) => setCapacity(e.target.value)} className='border px-4 w-full  h-12 rounded-md' type="number" {...register("capacity")} required placeholder="Enter Room's capacity " /> 
+                        <input onChange={(e) => setBedType(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("bedType")} required placeholder="Enter Room's bed type" /> 
+                        <input onChange={(e) => setRoomServices(e.target.value)} className='border px-4 w-full  h-12 rounded-md' {...register("roomServices")} required placeholder="Enter Room's services" /> 
+                       
                         <input type="file" className="file-input file-input-bordered w-full " accept='imgages/*' onChange={handleImgChange} />
                     </div>
                     <div className='h-full w-full mb-4 text-start'>
