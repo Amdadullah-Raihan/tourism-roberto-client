@@ -28,26 +28,26 @@ const Rooms = () => {
             {
                 rooms?.map(room =>
 
-                    <div className="flex px-0 bg-base-50 md:max-w-[700px] md:max-h-[254px] rounded-xl mb-8">
+                    <div className="md:flex px-0  md:max-w-[800px] md:max-h-[265px] rounded-xl md:mb-14 mb-10 bg-teal-50 pb-4 ">
                        
-                        <div className='bg-cover w-full md:w-[50%] min-h-[300px]'>
-                            <img src={room.imgUrl} alt="" className='w-full overflow-hidden rounded-l-xl max-h-[254px]' />
+                        <div className='bg-cover w-full md:w-[50%]'>
+                            <img src={room.imgUrl} alt="" className='w-[100%] overflow-hidden md:rounded-l-xl rounded-t-2xl ' />
                         </div>
-                        <div className="card-body">
-                            <div>
-                                <h2 className="text-2xl text-start capitalize">{room.title}</h2>
-                                <h1><span className='text-teal-500 text-xl font-semibold'>{room.pricePerDay}$</span> <span className='text-gray-500'>/Day</span> </h1>
-                               <div className='text-start grid grid-cols-2 gap-y-10 mt-4'>
-                                    <p><span>size:</span>{room.roomSize}</p>
-                                    <p><span>Capacity:</span>{room.capacity}</p>
-                                    <p><span>Bed:</span>{room.bedType}</p>
-                                    <p><span>services:</span>{room.roomServices}</p>
+                        <div className=" mx-8">
+                            <div className='py-5'>
+                                <h2 className="text-2xl text-start capitalize font-semibold">{room.title}</h2>
+                                <h1 className='text-start'><span className='text-teal-500 text-2xl font-semibold'>{room.pricePerDay}$</span> <span className='text-gray-500'>/Day</span> </h1>
+                               <div className='text-start grid grid-cols-2 gap-y-6 mt-4'>
+                                    <p className=' capitalize'><span className='text-gray-500 text-semibold'>Size: </span>{room.roomSize}</p>
+                                    <p className=' capitalize'><span className='text-gray-500 text-semibold'>Capacity: </span>{room.capacity}</p>
+                                    <p className=' capitalize'><span className='text-gray-500 text-semibold'>Bed: </span>{room.bedType}</p>
+                                    <p className=' capitalize'><span className='text-gray-500 text-semibold'>Services: </span>{room.roomServices}</p>
                                </div>
                             </div>
                             {/* <p
                             className='text-start'
                             dangerouslySetInnerHTML={CreateMarkUp(room.content)}></p> */}
-                            <div className="card-actions justify-end">
+                            <div className="text-start">
                                 <Link to={`rooms/${room._id}`} className="text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></Link>
                             </div>
                         </div>
