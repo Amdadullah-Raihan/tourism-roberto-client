@@ -10,7 +10,7 @@ import useTitle from '../../hooks/useTitle';
 const Rooms = () => {
     useTitle("Rooms- Roberto")
     const [rooms, setRooms] = useState([]);
-    console.log(rooms);
+    // console.log(rooms);
    
 
     useEffect(()=>{
@@ -23,17 +23,17 @@ const Rooms = () => {
     },[])
 
     return (
-        <div className='container p-6 lg:px-16 lg:py-16\'>
+        <div className='container p-6 lg:px-16 lg:py-16 xl:mx-auto'>
           
             {
                 rooms?.map(room =>
 
-                    <div className="md:flex px-0  md:max-w-[800px] md:max-h-[265px] rounded-xl md:mb-14 mb-10 bg-teal-50 pb-4 ">
+                    <div className="md:flex px-0  md:max-w-[800px] rounded-xl md:mb-14 mb-10 bg-teal-50 " key={room._id}>
                        
-                        <div className='bg-cover w-full md:w-[50%]'>
+                        <div className='bg-cover w-full md:w-auto'>
                             <img src={room.imgUrl} alt="" className='w-[100%] overflow-hidden md:rounded-l-xl rounded-t-2xl ' />
                         </div>
-                        <div className=" mx-8">
+                        <div className=" mx-8 ">
                             <div className='py-5'>
                                 <h2 className="text-2xl text-start capitalize font-semibold">{room.title}</h2>
                                 <h1 className='text-start'><span className='text-teal-500 text-2xl font-semibold'>{room.pricePerDay}$</span> <span className='text-gray-500'>/Day</span> </h1>
