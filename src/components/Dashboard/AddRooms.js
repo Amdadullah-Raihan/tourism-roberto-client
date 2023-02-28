@@ -3,6 +3,7 @@ import DOMPurify from 'dompurify';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import ReactQuill from 'react-quill';
+import useReactQuill from '../../hooks/useReactQuil';
 
 
 
@@ -11,6 +12,7 @@ import ReactQuill from 'react-quill';
 const AddRooms = () => {
 
     const { register, handleSubmit } = useForm();
+    const [modules, formates] = useReactQuill();
     const onSubmit = data => console.log(data);
 
 
@@ -27,7 +29,11 @@ const AddRooms = () => {
                 <div className='h-full w-full mb-4 '>
                     <header className='font-semibold uppercase mby-2 text-start'>Add Room's Descriptions</header>
                     {/* <MyRichTextEditor/> */}
-                    <ReactQuill/>
+                    <ReactQuill
+                    modules={modules}
+                    formats={formates}
+                    
+                    />
                 </div>
 
                 <input className='bg-teal-400 text-white px-4 w-full mb-4 h-12 ' type="submit" />

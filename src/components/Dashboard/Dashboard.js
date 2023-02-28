@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet, Route, Routes } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
-import AddBlog from './AddBlog';
+import CreateBlog from './CreateBlog';
 import AddRooms from './AddRooms';
 import ManageRooms from './ManageRooms';
 
@@ -20,11 +20,11 @@ const Dashboard = () => {
         <div className='flex h-full'>
             <div className='dashboard-left flex flex-col w-[25vw] mt-6 leading-10 text-start p-12'>
                 <NavLink
-                    to='/dashboard/add-blog'
+                    to='/dashboard/create-blog'
                     style={({ isActive }) =>
                         isActive ? activeStyle : undefined
                     }>
-                    <i className="fa-solid fa-square-plus mr-2 "></i> Add Blog
+                    <i className="fa-solid fa-square-plus mr-2 "></i> Create a Blog
                 </NavLink>
                 <NavLink
                     to="/dashboard/manage-rooms"
@@ -45,9 +45,9 @@ const Dashboard = () => {
             </div>
             <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>
                 <Routes>
-                    <Route path='/' element={<AddRooms />} />
+                    <Route path='/' element={<CreateBlog />} />
                     <Route path='/add-room' element={<AddRooms />} />
-                    <Route path='/add-blog' element={<AddBlog />} />
+                    <Route path='/create-blog' element={<CreateBlog/>} />
                     <Route path='/manage-rooms' element={<ManageRooms />} />
                 </Routes>
                 <Outlet />
