@@ -5,7 +5,7 @@ import logo from '../../images/logo2.png.webp'
 export const Footer = () => {
     return (
         <div className='w-full'>
-            <footer className="footer p-10 bg-[#0E2737] text-base-content ">
+            <footer className="footer p-10 bg-[#0E2737] text-base-content">
                 <div className='text-white text-start'>
                     <img src={logo} alt="" />
                     <p>Roberto Hotel & Resort Ltd.<br />Providing reliable hotel services since 1992</p>
@@ -47,10 +47,10 @@ export const Footer = () => {
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4 text-white text-xl">
-                        <Link><i class="fa-brands fa-facebook-f"></i></Link>
-                        <Link><i class="fa-brands fa-linkedin-in"></i></Link>
-                        <Link><i class="fa-brands fa-twitter"></i></Link>
-                        <Link><i class="fa-brands fa-youtube"></i></Link>
+                        <Link to=''><i class="fa-brands fa-facebook-f"></i></Link>
+                        <Link to=''><i class="fa-brands fa-linkedin-in"></i></Link>
+                        <Link to=''><i class="fa-brands fa-twitter"></i></Link>
+                        <Link to=''><i class="fa-brands fa-youtube"></i></Link>
                     </div>
                 </div>
             </footer>

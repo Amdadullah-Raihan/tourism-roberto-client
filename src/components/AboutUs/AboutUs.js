@@ -4,7 +4,7 @@ import useTitle from '../../hooks/useTitle';
 const AboutUs = () => {
     useTitle("About Us -Roberto")
     return (
-        <div>
+        <div className='min-h-[73vh]'>
             about us
         </div>
     );

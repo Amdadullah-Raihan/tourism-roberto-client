@@ -15,6 +15,7 @@ import styles from "./index.css"
 import HeroSection from './components/Home/HeroSection';
 import Dashboard from './components/Dashboard/Dashboard';
 import { Footer } from './components/Footer/Footer';
+import Partners from './components/Partners/Partners';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path='*' element={<NotFound/>} />
 
        </Routes>
+       <Partners/>
        <Footer/>
     </div>
   );
