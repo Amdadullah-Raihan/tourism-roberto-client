@@ -14,7 +14,7 @@ function ContactSection() {
                     </p>
                 </div>
                 <div>
-                    <button className="btn bg-teal-500 border-none">
+                    <button className="btn bg-teal-500 border-none w-48 rounded-none">
                         Contact Now
                     </button>
                 </div>
