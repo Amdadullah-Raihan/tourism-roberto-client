@@ -48,7 +48,7 @@ const Rooms = () => {
                             className='text-start'
                             dangerouslySetInnerHTML={CreateMarkUp(room.content)}></p> */}
                             <div className="text-start">
-                                <Link to={`rooms/${room._id}`} className="text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></Link>
+                                <Link to={`/rooms/${room._id}`} className="text-teal-500 font-bold">Veiw Details <i className='ml-2 fa fa-solid fa-arrow-right'></i></Link>
                             </div>
                         </div>
                     </div>
