@@ -5,7 +5,7 @@ const Contact = () => {
     useTitle("Contact -Roberto ")
     return (
         <div className='min-h-[73vh]'>
-            contact
+            
         </div>
     );
 };
