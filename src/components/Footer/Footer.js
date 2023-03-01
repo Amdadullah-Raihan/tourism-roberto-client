@@ -4,8 +4,8 @@ import logo from '../../images/logo2.png.webp'
 
 export const Footer = () => {
     return (
-        <div className='w-full'>
-            <footer className="footer p-10 bg-[#0E2737] text-base-content">
+        <div className='w-full bg-[#0E2737]'>
+            <footer className="footer p-10  text-base-content xl:container mx-auto min-h-[23vh] pt-16">
                 <div className='text-white text-start'>
                     <img src={logo} alt="" />
                     <p>Roberto Hotel & Resort Ltd.<br />Providing reliable hotel services since 1992</p>

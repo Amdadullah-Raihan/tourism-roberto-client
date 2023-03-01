@@ -8,7 +8,7 @@ function ContactSection() {
             <div className='absolute bg-opacity-60 h-full w-full bg-black z-1'></div>
             <div className='md:flex justify-between items-center container mx-auto mx-16 z-10 relative'>
                 
-                <div className='text-white text-start mb-12'>
+                <div className='text-white text-start md:mb-0 mb-12'>
                     <h1 className='text-4xl'>Contact us now!</h1>
                     <p className='text-xl'>Contact (+12) 345-678-9999 to book directly or for advice
                     </p>
