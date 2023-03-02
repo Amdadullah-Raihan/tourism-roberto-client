@@ -33,7 +33,7 @@ export const Footer = () => {
                         <div className="relative">
                             <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16 rounded-full text-black" />
                             <button className="btn bg-teal-500 border-none absolute top-0 right-0 rounded rounded-full">
-                                <i class="fa-solid fa-paper-plane "></i>
+                                <i className="fa-solid fa-paper-plane "></i>
                             </button>
                         </div>
                     </div>
@@ -47,10 +47,10 @@ export const Footer = () => {
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4 text-white text-xl">
-                        <Link to=''><i class="fa-brands fa-facebook-f"></i></Link>
-                        <Link to=''><i class="fa-brands fa-linkedin-in"></i></Link>
-                        <Link to=''><i class="fa-brands fa-twitter"></i></Link>
-                        <Link to=''><i class="fa-brands fa-youtube"></i></Link>
+                        <Link to=''><i className="fa-brands fa-facebook-f"></i></Link>
+                        <Link to=''><i className="fa-brands fa-linkedin-in"></i></Link>
+                        <Link to=''><i className="fa-brands fa-twitter"></i></Link>
+                        <Link to=''><i className="fa-brands fa-youtube"></i></Link>
                     </div>
                 </div>
             </footer>
