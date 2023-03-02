@@ -16,7 +16,7 @@ const ManageRooms = () => {
     fetch(`http://localhost:5000/delete-room/${id}`,{
       method:"DELETE",
       content_type: "applications/json",
-      body:id
+      
     })
       .then(res => res.json())
       .then(result=>{
