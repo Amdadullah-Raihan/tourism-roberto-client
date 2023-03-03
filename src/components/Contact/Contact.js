@@ -40,17 +40,17 @@ const Contact = () => {
                     <div>
                         <i class="fa-regular fa-envelope  text-teal-500 text-2xl" ></i>
                         <h3 className='md:text-3xl '>Email</h3>
-                        <p className='text-gray-500  '>amdadullahrayhan@gmail.com</p>
+                        <p className='text-gray-500 break-words	'>amdadullahrayhan@gmail.com</p>
                     </div>
 
                 </div>
-                <div className='mx-auto   h-auto p-8'>
-                    <MapContainer center={[23.798919, 90.434168]} zoom={13} scrollWheelZoom={false}>
+                <div className='mx-auto   h-auto md:p-8 p-4'>
+                    <MapContainer center={[23.798919, 90.434168]} zoom={13} scrollWheelZoom={true}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         />
-                        <Marker position={[51.505, -0.09]}>
+                        <Marker position={[23.798919, 90.434168]}>
                             <Popup>
                                 A pretty CSS3 popup. <br /> Easily customizable.
                             </Popup>
