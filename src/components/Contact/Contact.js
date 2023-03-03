@@ -18,32 +18,33 @@ const Contact = () => {
                     <h1 className='text-lg font-semibold'><Link to='/'>Home</Link> <i class="fa-solid fa-chevron-right text-sm"></i> Contact us </h1>
                 </div>
             </section>
-            <section className='mb-16 shadow-lg bg-white  max-w-[900px] md:mx-auto mt-[-100px] relative z-10 m-4'>
+            <section className='mb-16 shadow-lg bg-white  container md:mx-auto mt-[-100px] relative z-10 m-4'>
 
-                <div className='grid grid-cols-2 gap-16 mx-auto w-full p-8'>
+                <div className='grid grid-cols-2 md:grid-cols-4 md:gap-y-0 gap-y-16 mx-auto w-full p-8'>
                     <div >
                         <i className='fa fa-solid fa-phone text-teal-500 text-2xl'></i>
-                        <h3 className='md:text-3xl font-semibold'>Phone</h3>
-                        <p className='text-gray-500 font-semibold'>+088-123456789</p>
+                        <h3 className='md:text-3xl '>Phone</h3>
+                        <p className='md:text-gray-500 '>+088-123456789</p>
                     </div>
                     <div>
                         <i className='fa fa-solid fa-location-dot  text-teal-500 text-2xl'></i>
-                        <h3 className='md:text-3xl font-semibold'>Phone</h3>
-                        <p className='text-gray-500 font-semibold'>+088-123456789</p>
+                        <h3 className='md:text-3xl '>Address</h3>
+                        <p className='text-gray-500'>Vatara, Gulshan, Dhaka-1212</p>
                     </div>
                     <div>
                         <i class="fa-regular fa-clock  text-teal-500 text-2xl"></i>
-                        <h3 className='md:text-3xl font-semibold'>Phone</h3>
-                        <p className='md:text-gray-500 font-semibold'>+088-123456789</p>
+                        <h3 className='md:text-3xl '>Open time
+                        </h3>
+                        <p className='text-gray-500 '>10:00 am to 23:00 pm</p>
                     </div>
                     <div>
                         <i class="fa-regular fa-envelope  text-teal-500 text-2xl" ></i>
-                        <h3 className='md:text-3xl font-semibold'>Phone</h3>
-                        <p className='text-gray-500 font-semibold'>+088-123456789</p>
+                        <h3 className='md:text-3xl '>Email</h3>
+                        <p className='text-gray-500  '>amdadullahrayhan@gmail.com</p>
                     </div>
 
                 </div>
-                <div className='mx-auto  max-w-[900px] h-auto p-8'>
+                <div className='mx-auto   h-auto p-8'>
                     <MapContainer center={[23.798919, 90.434168]} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -58,10 +59,10 @@ const Contact = () => {
                 </div>
             </section>
             <section className='container md:mx-auto p-6 my-16'>
-               <div className='my-8 leading-10'>
+                <div className='my-8 leading-10'>
                     <h4 className='text-teal-500 uppercase'>contact us</h4>
                     <h1 className='font-bold text-4xl capitalize'>leave message</h1>
-               </div>
+                </div>
                 <div>
                     <div className='flex gap-4 mb-4'>
                         <input type="text" className='border w-full h-12 pl-4' placeholder='Your Name' />
