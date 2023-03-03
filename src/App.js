@@ -16,7 +16,7 @@ import HeroSection from './components/Home/HeroSection';
 import Dashboard from './components/Dashboard/Dashboard';
 import { Footer } from './components/Footer/Footer';
 import Partners from './components/Partners/Partners';
-import ContactSection from './components/Contact/ContactSection';
+import ContactComponent from './components/Contact/ContactComponent';
 
 function App() {
   return (
@@ -46,7 +46,7 @@ function App() {
           <Route path='*' element={<NotFound/>} />
 
        </Routes>
-       <ContactSection/>
+       <ContactComponent/>
        <Partners/>
        <Footer/>
     </div>

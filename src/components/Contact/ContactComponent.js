@@ -1,9 +1,9 @@
 import React from 'react'
 import contact from '../../images/shiny-night-city.jpg'
 
-function ContactSection() {
+function ContactComponent() {
     return (
-        <div className='min-h-[300px] container mx-auto flex items-center  relative' style={{ backgroundImage: `url(${contact})`  }} >
+        <div className='min-h-[300px] container mx-auto flex items-center  relative bg-cover bg-no-repeat' style={{ backgroundImage: `url(${contact})`  }} >
 
             <div className='absolute bg-opacity-60 h-full w-full bg-black z-1'></div>
             <div className='md:flex justify-between items-center mx-16 container z-10 relative'>
@@ -23,4 +23,4 @@ function ContactSection() {
     )
 }
 
-export default ContactSection
+export default ContactComponent
