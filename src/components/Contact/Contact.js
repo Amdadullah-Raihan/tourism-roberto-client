@@ -15,7 +15,7 @@ const Contact = () => {
 
                 <div className='relative flex justify-center items-center h-full text-white flex-col leading-10'>
                     <h1 className='text-4xl'>Contact Us</h1>
-                    <h1 className='text-lg font-semibold'><Link to='/'>Home</Link> <i class="fa-solid fa-chevron-right text-sm"></i> Contact us </h1>
+                    <h1 className='text-lg font-semibold'><Link to='/'>Home</Link> <i className="fa-solid fa-chevron-right text-sm"></i> Contact us </h1>
                 </div>
             </section>
             <section className='mb-16 shadow-lg bg-white  container md:mx-auto mt-[-100px] relative z-10 m-4'>
@@ -32,13 +32,13 @@ const Contact = () => {
                         <p className='text-gray-500'>Vatara, Gulshan, Dhaka-1212</p>
                     </div>
                     <div>
-                        <i class="fa-regular fa-clock  text-teal-500 text-2xl"></i>
+                        <i className="fa-regular fa-clock  text-teal-500 text-2xl"></i>
                         <h3 className='md:text-3xl '>Open time
                         </h3>
                         <p className='text-gray-500 '>10:00 am to 23:00 pm</p>
                     </div>
                     <div>
-                        <i class="fa-regular fa-envelope  text-teal-500 text-2xl" ></i>
+                        <i className="fa-regular fa-envelope  text-teal-500 text-2xl" ></i>
                         <h3 className='md:text-3xl '>Email</h3>
                         <p className='text-gray-500 break-words	'>amdadullahrayhan@gmail.com</p>
                     </div>
@@ -52,7 +52,7 @@ const Contact = () => {
                         />
                         <Marker position={[23.798919, 90.434168]}>
                             <Popup>
-                                A pretty CSS3 popup. <br /> Easily customizable.
+                                <p>Roberto Hotel and Resort</p>
                             </Popup>
                         </Marker>
                     </MapContainer>

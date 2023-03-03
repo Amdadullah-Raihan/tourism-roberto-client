@@ -14,7 +14,7 @@ const AboutUs = () => {
 
                 <div className='relative flex justify-center items-center h-full text-white flex-col leading-10'>
                     <h1 className='text-4xl'>About Us</h1>
-                    <h1 className='text-lg font-semibold'><Link to='/'>Home</Link> <i class="fa-solid fa-chevron-right text-sm"></i> About </h1>
+                    <h1 className='text-lg font-semibold'><Link to='/'>Home</Link> <i className="fa-solid fa-chevron-right text-sm"></i> About </h1>
                 </div>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 container mx-auto my-20'>
