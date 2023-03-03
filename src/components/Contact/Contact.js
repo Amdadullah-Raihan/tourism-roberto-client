@@ -45,7 +45,7 @@ const Contact = () => {
 
                 </div>
                 <div className='mx-auto   h-auto md:p-8 p-4'>
-                    <MapContainer center={[23.798919, 90.434168]} zoom={13} scrollWheelZoom={true}>
+                    <MapContainer center={[23.798919, 90.434168]} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
