@@ -11,7 +11,7 @@ import bar from '../../images/icon-1.png (1).webp'
 
 const AboutSection = () => {
     return (
-        <div className=' my-24 text-start container mx-auto px-6'>
+        <div className=' my-12 text-start container mx-auto px-6'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center '>
                 <div className=''>
                     <h4 className='uppercase text-[#1CC3B2] font-semibold'>about us</h4>
