@@ -100,7 +100,7 @@ const CreateBlog = () => {
         <div className='xl:flex gap-12' >
 
           
-            <div className='bg-white w-full  rounded-2xl max-w-[700px] '>
+            <div className='bg-white w-full  rounded-2xl max-w-[900px] '>
                 <h1 className='text-2xl uppercase text-teal-500 font-semibold pt-6'> Create a Blog </h1>
                 <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
                         
@@ -136,7 +136,7 @@ const CreateBlog = () => {
                 </form>
             </div>
 
-            <div className='bg-white w-full min-h-[200px] rounded-2xl max-w-[700px] text-start mt-4 py-6'>
+            <div className='bg-white w-full min-h-[200px] rounded-2xl max-w-[900px] text-start mt-4 py-6'>
                 <p className='px-6 text-red-500 text-xl inline uppercase'>Blog Preview</p>
                 <div className='px-6 py-2'>
                     <img src={imgUrl} alt="" className='mb-6 ' />

@@ -20,6 +20,7 @@ const Home = () => {
             <RoomSection/>
             <TestimonialsSection/>
             <OfferingsSection/>
+          
         </div>
     );
 };
