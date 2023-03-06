@@ -46,8 +46,8 @@ const RoomSection = () => {
                             </div>
 
                             <div className="absolute right-0 left-0  bottom-0">
-                                <a href={`#slide${i-1}`} className="btn w-32 bg-[#f] rounded-none border-none ">❮ Previous</a>
-                                <a href={`#slide${i+1}`} className="btn w-32 bg-[#1CC3B2] rounded-none border-none ">Next ❯</a>
+                                <a href={i<1 ? `#slide${rooms.length - 1}` : `#slide${i-1}`}  className="btn w-32 bg-[#f] rounded-none border-none ">❮ Previous</a>
+                                <a href={i>rooms.length-2 ? `#slide0` : `#slide${i + 1}`} className="btn w-32 bg-[#1CC3B2] rounded-none border-none ">Next ❯</a>
                             </div>
                         </div>
 
