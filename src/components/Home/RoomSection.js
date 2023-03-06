@@ -23,7 +23,7 @@ const RoomSection = () => {
                 {
                     rooms?.map((room, i) =>
                         
-                        <div id={`slide${i}`} className="carousel-item relative w-full">
+                        <div key={room._id} id={`slide${i}`} className="carousel-item relative w-full">
 
                             <div className='w-full grid md:grid-cols-2 grid-cols-1 min-h-[500px]'>
                                 <div className='w-full'>
@@ -35,10 +35,10 @@ const RoomSection = () => {
                                         <span className='text-4xl text-teal-500'>${room.pricePerDay}</span>
                                         <span className='text-sm'> /Day</span>
                                     </h1>
-                                    <p><i class="fa-solid fa-check text-sm"></i> Size : {room.roomSize} </p>
-                                    <p><i class="fa-solid fa-check text-sm"></i> Bed : Max Person {room.capacity} </p>
-                                    <p><i class="fa-solid fa-check text-sm"></i> Bed : {room.bedType} </p>
-                                    <p><i class="fa-solid fa-check text-sm"></i> Services : {room.roomServices} </p>
+                                    <p><i className="fa-solid fa-check text-sm"></i> Size : {room.roomSize} </p>
+                                    <p><i className="fa-solid fa-check text-sm"></i> Bed : Max Person {room.capacity} </p>
+                                    <p><i className="fa-solid fa-check text-sm"></i> Bed : {room.bedType} </p>
+                                    <p><i className="fa-solid fa-check text-sm"></i> Services : {room.roomServices} </p>
                                     <Link to={`rooms/${room._id}`} className='bg-teal-500 btn mt-4 border-none rounded-none px-8'> Veiw Details <i className='fa fa-arrow-right ml-2 text-sm'></i></Link>
 
                                 </div>
