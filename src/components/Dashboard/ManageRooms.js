@@ -5,7 +5,7 @@ const ManageRooms = () => {
 
   //fetching all rooms
   useEffect(() => {
-    fetch("http://localhost:5000/rooms")
+    fetch("https://tourism-roberto-server.vercel.app/rooms")
       .then(res => res.json())
       .then(rooms => setRooms(rooms))
   }, [])
@@ -13,7 +13,7 @@ const ManageRooms = () => {
   //deleting a room
   const handleDelete = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/delete-room/${id}`,{
+    fetch(`https://tourism-roberto-server.vercel.app/delete-room/${id}`,{
       method:"DELETE",
       content_type: "applications/json",
       

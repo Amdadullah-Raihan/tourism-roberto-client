@@ -80,7 +80,7 @@ const CreateBlog = () => {
             "content": content
         }
         console.log(blogData);
-        const url = 'http://localhost:5000/create-room'
+        const url = 'https://tourism-roberto-server.vercel.app/create-room'
         fetch(url, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },

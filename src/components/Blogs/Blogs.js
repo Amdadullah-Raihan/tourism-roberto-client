@@ -9,7 +9,7 @@ const Blogs = () => {
 
     //fetching blogs
     useEffect(()=>{
-        fetch("http://localhost:5000/blogs")
+        fetch("https://tourism-roberto-server.vercel.app/blogs")
         .then(res=> res.json())
         .then(blogs => {
             console.log(blogs);

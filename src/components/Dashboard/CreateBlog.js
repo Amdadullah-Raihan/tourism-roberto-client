@@ -63,7 +63,7 @@ const CreateBlog = () => {
             "content":content
         }
         console.log(blogData);
-        const url = 'http://localhost:5000/create-blog'
+        const url = 'https://tourism-roberto-server.vercel.app/create-blog'
         fetch(url,{
             method:"POST",
             headers: { 'Content-Type': 'application/json' },

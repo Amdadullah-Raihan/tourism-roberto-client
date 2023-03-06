@@ -7,7 +7,7 @@ const RoomSection = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/rooms')
+        fetch('https://tourism-roberto-server.vercel.app/rooms')
             .then(res => res.json())
             .then(rooms => {
                 console.log(rooms);

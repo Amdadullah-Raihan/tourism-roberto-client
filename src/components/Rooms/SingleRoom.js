@@ -16,7 +16,7 @@ const SingleRoom = () => {
 
     // getting an individual room by id
     useEffect(() => {
-        fetch(`http://localhost:5000/rooms/${id}`)
+        fetch(`https://tourism-roberto-server.vercel.app/rooms/${id}`)
             .then(res => res.json())
             .then(room => {
                 console.log(room);
