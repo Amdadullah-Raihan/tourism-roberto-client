@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import room1 from '../../images/rooms_files/13.jpg'
+
 
 const RoomSection = () => {
     const [rooms, setRooms] = useState([])
@@ -27,7 +27,7 @@ const RoomSection = () => {
 
                             <div className='w-full grid md:grid-cols-2 grid-cols-1 min-h-[500px]'>
                                 <div className='w-full'>
-                                    <img src={room1} className="w-full h-full" alt='' />
+                                    <img src={room.imgUrl} className="w-full h-full" alt='' />
                                 </div>
                                 <div className=' bg-[#0E2737] text-white  min-h-[330px] text-start font-semibold p-16 leading-10'>
                                     <h1 className='text-4xl mb-4'>{room.title}</h1>
