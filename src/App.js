@@ -17,6 +17,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 import { Footer } from './components/Footer/Footer';
 import Partners from './components/Partners/Partners';
 import ContactComponent from './components/Contact/ContactComponent';
+import SingleBlog from './components/Blogs/SingleBlog';
+import Login from './components/Login/Login';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
@@ -26,12 +29,13 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/about' element={<AboutUs/>} />
           <Route path='/rooms' element={<Rooms/>} />
-          {/* <Route path='/single-room' element={<SingleRoom/>} /> */}
           <Route path='/blogs' element={<Blogs/>} />
-          <Route path='/single-blog' element={<Blogs/>} />
+          <Route path='/blogs/:id' element={<SingleBlog/>} />
           <Route path='/blogs' element={<Blogs/>} />
           <Route path='/contact' element={<Contact/>} />
           <Route path='/rooms/:id' element={<SingleRoom/>} />
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/signUp' element={<SignUp/>}/>
 
           {/* dashboard */}
           <Route path='/dashboard/*' element={<Dashboard/>}/>

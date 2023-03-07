@@ -10,6 +10,7 @@
     "daisyui": "^2.50.2",
     "dompurify": "^3.0.0",
     "draft-convert": "^2.1.13",
+    "firebase": "^9.17.2",
     "install": "^0.13.0",
     "leaflet": "^1.9.3",
     "postcss": "^8.4.21",
