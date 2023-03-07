@@ -12,7 +12,19 @@ const SingleRoom = () => {
 
     const { id } = useParams();
     const [room, setRoom] = useState([])
-    // console.log(room);
+    const [checkin, setCheckin] = useState(null)
+    const [checkOut, setCheckOut] = useState(null)
+    
+    //calculate difference between checkin and checkout
+    const calculateDateDiff = () =>{
+        const date1 = new Date(checkin);
+        const date2 = new Date(checkOut);
+        const diffTime = Math.abs(date2 - date1);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+       
+        return (diffDays + " days");
+    }
+
 
     // getting an individual room by id
     useEffect(() => {
@@ -90,10 +102,10 @@ const SingleRoom = () => {
             <div className='md:ml-8 '>
                 <form className='text-start m-6 md:m-0 border p-6'>
                     <label htmlFor="">Check in</label><br />
-                    <input type="date" className='border px-4 py-2 w-full mb-4' id='checkin' />
+                    <input type="date" className='border px-4 py-2 w-full mb-4' id='checkin' onChange={e=> setCheckin(e.target.value)}/>
                     <label htmlFor="">Check Out</label>
-                    <input type="date" className='border px-4 py-2 w-full' />
-                    <h3 className='mt-4 text-2xl'>Total Price: ${room.pricePerDay}</h3>
+                    <input type="date" className='border px-4 py-2 w-full' onChange={e => setCheckOut(e.target.value)} />
+                    <h3 className='mt-4 text-2xl'>Total Price: ${room.pricePerDay * parseInt(calculateDateDiff())}</h3>
                     <input type="submit" name="" id="" value='book this room' className='mt-8 btn w-full rounded-full bg-teal-500 border-none' />
 
                 </form>
