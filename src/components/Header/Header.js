@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 import logo from '../../images/logo.png.webp'
 
 const Header = () => {
-    const users = true;
+    const { user } = useFirebase();
+    console.log(user);
 
     let activeStyle = {
         textDecoration: "",
-        backgraoundColor:"#fff",
+        backgraoundColor: "#fff",
         // color:'#1CC3B2',
         // fontWeight:"bold"
     };
@@ -67,6 +69,16 @@ const Header = () => {
                                         isActive ? activeStyle : undefined
                                     }>
                                     Blogs
+                                </NavLink>
+
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/contact"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }>
+                                    Contact
                                 </NavLink>
 
                             </li>
@@ -150,7 +162,19 @@ const Header = () => {
                             </NavLink>
 
                         </li>
-                       
+                        {
+                          !user &&  <li>
+                                <NavLink
+                                    to="/login"
+                                    style={({ isActive }) =>
+                                        isActive ? activeStyle : undefined
+                                    }>
+                                    Login
+                                </NavLink>
+
+                            </li>
+                        }
+
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -160,13 +184,17 @@ const Header = () => {
                         } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i className="fa-solid fa-arrow-right ml-2"></i> </NavLink>
                 </div>
                 {
-                    users && <div className="dropdown dropdown-end ">
-                        <label tabIndex={0} className="btn bg-teal-500 border-none w-12 h-12 ml-3 rounded-full">
-                            <img src="" alt="user" />
+                    user && <div className="dropdown dropdown-end ">
+                        
+                        <label tabIndex={0} className="btn bg-white border-teal-500 w-12 h-12 ml-3 rounded-full">
+                            <img src={user.photoURL} alt="user" className='rounded-full w-full' />
                         </label>
+
+                        {/* profile dropdown  */}
+
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow rounded-box w-52 bg-slate-50  mt-5 ">
-                            <img src="" alt="profile" className='w-16 h-16 mx-auto p-12 border-2 rounded-full mb-2 border-teal-200' />
-                            <h3>Amdadul Islam</h3>
+                            <img src={user.photoURL} alt="profile" className='w-16 h-16 mx-auto p-12 border-2 rounded-full mb-2 border-teal-200' />
+                            <h3>{user.displayName}</h3>
                             <hr className='my-4 ' />
                             <li className='hover:bg-teal-100'>
                                 <Link to='/dashboard'>
@@ -177,12 +205,12 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li className='hover:bg-teal-100'>
-                                <a>
+                                <button>
                                     <span className="material-symbols-outlined text-teal-500">
                                         logout
                                     </span>
                                     Log Out
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>
