@@ -12,8 +12,8 @@ const SingleRoom = () => {
 
     const { id } = useParams();
     const [room, setRoom] = useState([])
-    const [checkin, setCheckin] = useState(null)
-    const [checkOut, setCheckOut] = useState(null)
+    const [checkin, setCheckin] = useState(new Date())
+    const [checkOut, setCheckOut] = useState(new Date())
     
     //calculate difference between checkin and checkout
     const calculateDateDiff = () =>{
@@ -22,7 +22,7 @@ const SingleRoom = () => {
         const diffTime = Math.abs(date2 - date1);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
        
-        return (diffDays + " days");
+        return (diffDays);
     }
 
 
@@ -31,14 +31,19 @@ const SingleRoom = () => {
         fetch(`https://tourism-roberto-server.vercel.app/rooms/${id}`)
             .then(res => res.json())
             .then(room => {
-                console.log(room);
                 setRoom(room)
             })
     }, [])
 
+    //handle booking 
+    const handleBooking = (e) =>{
+        e.preventDefault();
+    }
+
     return (
 
         <div className='mx-auto my-16 flex flex-col md:flex-row w-full container'>
+            {/* room's details starts */}
             <div className='container'>
                 <div className=''>
                     <img src={room.imgUrl} alt="" className='w-full ' />
@@ -74,9 +79,9 @@ const SingleRoom = () => {
                 >
 
                 </div>
-                <div className='text-start p-6 md:p-0'>
+                <div className='text-start p-6 md:p-0 w-full'>
                     <h2 className='text-2xl font-bold my-8'>Room Services </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-3 md:w-[60%] gap-y-6 ">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 ">
 
                         <div>
                             <p className='flex gap-2'> <img src={icon1} className='w-12' alt="" /> Air Conditioning</p>
@@ -99,8 +104,15 @@ const SingleRoom = () => {
                     </div>
                 </div>
             </div>
+            {/* Room's details ends */}
+
+
+            {/* booking form starts  */}
             <div className='md:ml-8 '>
-                <form className='text-start m-6 md:m-0 border p-6'>
+                <div className='px-6 md:px-0 text-start mb-2'>
+                    <p><span className='text-3xl text-teal-500'>${room.pricePerDay}</span><span className='text-gray-500'>/Day</span></p>
+                </div>
+                <form className='text-start m-6 md:m-0 border p-6 ' onSubmit={e => handleBooking(e)}>
                     <label htmlFor="">Check in</label><br />
                     <input type="date" className='border px-4 py-2 w-full mb-4' id='checkin' onChange={e=> setCheckin(e.target.value)}/>
                     <label htmlFor="">Check Out</label>
@@ -110,6 +122,7 @@ const SingleRoom = () => {
 
                 </form>
             </div>
+            {/* booking form ends */}
         </div>
     );
 };
