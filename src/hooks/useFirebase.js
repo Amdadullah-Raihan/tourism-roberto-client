@@ -13,26 +13,24 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
+    const [isLogged, setIsLogged] = useState(false);
+    
 
 
     //handle google popup sign in
     const handleGoogleSignIn = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
+  
+        return signInWithPopup(auth, googleProvider)
 
-                setUser(result.user)
-            }).catch(err => {
-
-                setErrorMsg(err.maassege)
-            })
     }
     //handle log out
     const handleSignOut = () => {
         signOut(auth)
             .then(() => {
-               setUser({})
+                setUser({})
+           
             }).catch((error) => {
-                
+
             });
     }
 
@@ -41,7 +39,7 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-
+                setIsLogged(true)
 
             } else {
                 setUser({})
@@ -55,7 +53,8 @@ const useFirebase = () => {
         setUser,
         errorMsg,
         handleGoogleSignIn,
-        handleSignOut
+        handleSignOut,
+        isLogged, 
     }
 
 

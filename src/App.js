@@ -24,35 +24,35 @@ import SignUp from './components/SignUp/SignUp';
 function App() {
   return (
     <div className="App">
-       <Header/>
-       <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='/about' element={<AboutUs/>} />
-          <Route path='/rooms' element={<Rooms/>} />
-          <Route path='/blogs' element={<Blogs/>} />
-          <Route path='/blogs/:id' element={<SingleBlog/>} />
-          <Route path='/blogs' element={<Blogs/>} />
-          <Route path='/contact' element={<Contact/>} />
-          <Route path='/rooms/:id' element={<SingleRoom/>} />
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/signUp' element={<SignUp/>}/>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<AboutUs />} />
+        <Route path='/rooms' element={<Rooms />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blogs/:id' element={<SingleBlog />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signUp' element={<SignUp />} />
 
-          {/* dashboard */}
-          <Route path='/dashboard/*' element={<Dashboard/>}/>
-          {/* private routes starts */}
+   
+        
+        {/* private routes starts */}
 
-          {/* <Route path=' ' element={<PrivateRoute></PrivateRoute>} /> */}
-          
-          {/* private routes ends */}
+        <Route path='/rooms/:id' element={<PrivateRoute><SingleRoom /></PrivateRoute>} />
+        <Route path='/dashboard/*'  element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+
+        {/* private routes ends */}
 
 
-          {/* Not found page  */}
-          <Route path='*' element={<NotFound/>} />
+        {/* Not found page  */}
+        <Route path='*' element={<NotFound />} />
 
-       </Routes>
-       <ContactComponent/>
-       <Partners/>
-       <Footer/>
+      </Routes>
+      <ContactComponent />
+      <Partners />
+      <Footer />
     </div>
   );
 }
