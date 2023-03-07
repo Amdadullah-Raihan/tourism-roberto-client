@@ -4,7 +4,7 @@ import useFirebase from '../../hooks/useFirebase';
 import logo from '../../images/logo.png.webp'
 
 const Header = () => {
-    const { user } = useFirebase();
+    const { user, handleSignOut } = useFirebase();
     console.log(user);
 
     let activeStyle = {
@@ -163,7 +163,7 @@ const Header = () => {
 
                         </li>
                         {
-                          !user &&  <li>
+                          !user.email &&  <li>
                                 <NavLink
                                     to="/login"
                                     style={({ isActive }) =>
@@ -184,8 +184,8 @@ const Header = () => {
                         } className="btn bg-[#1CC3B2] border-none rounded-none my-0 ">Book Now <i className="fa-solid fa-arrow-right ml-2"></i> </NavLink>
                 </div>
                 {
-                    user && <div className="dropdown dropdown-end ">
-                        
+                    user.email && <div className="dropdown dropdown-end ">
+
                         <label tabIndex={0} className="btn bg-white border-teal-500 w-12 h-12 ml-3 rounded-full">
                             <img src={user.photoURL} alt="user" className='rounded-full w-full' />
                         </label>
@@ -205,7 +205,7 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li className='hover:bg-teal-100'>
-                                <button>
+                                <button onClick={handleSignOut}>
                                     <span className="material-symbols-outlined text-teal-500">
                                         logout
                                     </span>
