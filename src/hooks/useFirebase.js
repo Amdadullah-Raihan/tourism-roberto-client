@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import initializeAuthentication from '../firebase/firebase.init';
 
 
@@ -13,13 +13,13 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
-    const [isLogged, setIsLogged] = useState(false);
-    
+
+
 
 
     //handle google popup sign in
     const handleGoogleSignIn = () => {
-  
+
         return signInWithPopup(auth, googleProvider)
 
     }
@@ -28,9 +28,41 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 setUser({})
-           
-            }).catch((error) => {
 
+            }).catch((error) => {
+                // const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrorMsg(errorMessage)
+                // ..
+            });
+    }
+    //create account using email and password
+    const createUserUsingEmailPass = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                setUser(result.user)
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrorMsg(errorMessage)
+                // ..
+            });
+    }
+    //log in user by email and pass
+    const logInUsingEmailPass = (email, password) =>{
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            
+                const user = userCredential.user;
+                setUser(user)
+                setErrorMsg('')
+               
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                const errorMessage = error.message;
+                setErrorMsg(errorMessage)
             });
     }
 
@@ -39,7 +71,6 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-                setIsLogged(true)
 
             } else {
                 setUser({})
@@ -52,9 +83,11 @@ const useFirebase = () => {
         user,
         setUser,
         errorMsg,
+        setErrorMsg,
         handleGoogleSignIn,
         handleSignOut,
-        isLogged, 
+        createUserUsingEmailPass,
+        logInUsingEmailPass
     }
 
 

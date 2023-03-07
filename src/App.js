@@ -19,7 +19,8 @@ import Partners from './components/Partners/Partners';
 import ContactComponent from './components/Contact/ContactComponent';
 import SingleBlog from './components/Blogs/SingleBlog';
 import Login from './components/Login/Login';
-import SignUp from './components/SignUp/SignUp';
+import SignUp from './components/Login/SignUp';
+
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/signUp' element={<SignUp />} />
+        <Route path='/signUp' element={<SignUp/>} />
 
    
         

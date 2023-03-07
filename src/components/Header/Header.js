@@ -187,14 +187,14 @@ const Header = () => {
                 {
                     user.email && <div className="dropdown dropdown-end ">
 
-                        <label tabIndex={0} className="btn bg-white border-teal-500 w-12 h-12 ml-3 rounded-full">
+                        <label tabIndex={0} className="btn border-none p-0 bg-white ml-3 rounded-full">
                             <img src={user.photoURL} alt="user" className='rounded-full w-full' />
                         </label>
 
                         {/* profile dropdown  */}
 
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow rounded-box w-52 bg-slate-50  mt-5 ">
-                            <img src={user.photoURL} alt="profile" className='w-16 h-16 mx-auto p-12 border-2 rounded-full mb-2 border-teal-200' />
+                            <img src={user.photoURL} alt="user" className='rounded-full w-[60%] mx-auto border-teal-500 border-2 my-4' />
                             <h3>{user.displayName}</h3>
                             <hr className='my-4 ' />
                             <li className='hover:bg-teal-100'>
