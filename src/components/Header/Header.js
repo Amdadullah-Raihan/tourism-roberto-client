@@ -82,17 +82,18 @@ const Header = () => {
                                 </NavLink>
 
                             </li>
-                            <li>
-                                <NavLink
-                                    to="/contact"
-                                    style={({ isActive }) =>
-                                        isActive ? activeStyle : undefined
-                                    }>
-                                    Contact
-                                </NavLink>
+                            {
+                                !user.email && <li>
+                                    <NavLink
+                                        to="/login"
+                                        style={({ isActive }) =>
+                                            isActive ? activeStyle : undefined
+                                        }>
+                                        Login
+                                    </NavLink>
 
-                            </li>
-
+                                </li>
+                            }
 
                         </ul>
                     </div>
