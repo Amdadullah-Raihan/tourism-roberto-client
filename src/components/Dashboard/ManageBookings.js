@@ -7,7 +7,7 @@ const ManageBookings = () => {
 
     //getting all bookings 
     useEffect(()=>{
-        fetch('http://localhost:5000/bookings')
+        fetch('https://tourism-roberto-server.vercel.app/bookings')
         .then(res => res.json())
         .then(bookings => {
             console.log(bookings);
