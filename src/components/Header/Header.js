@@ -5,7 +5,7 @@ import logo from '../../images/logo.png.webp'
 
 const Header = () => {
     const { user, handleSignOut } = useFirebase();
-    console.log(user);
+ 
 
     let activeStyle = {
         textDecoration: "",
@@ -207,7 +207,7 @@ const Header = () => {
                             </li>
                             <li>
                                 <Link to='/my-bookings'>
-                                    <span class="material-symbols-outlined text-teal-500">
+                                    <span className="material-symbols-outlined text-teal-500">
                                         shopping_cart
                                     </span>
                                     My Bookings

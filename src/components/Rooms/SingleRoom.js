@@ -20,7 +20,7 @@ const SingleRoom = () => {
     const {user}= useFirebase();
     const [totalCost, setTotalCost] = useState(0)
 
- 
+
 
 
     //calculate difference between checkin and checkout
@@ -54,7 +54,7 @@ const SingleRoom = () => {
         const data = {
             'userName': user.displayName,
             'userEmail': user.email,
-            'roomId': room._id,
+            'roomTitle': room.title,
             'checkin': checkin,
             "checkout": checkOut,
             "totalCost": totalCost
