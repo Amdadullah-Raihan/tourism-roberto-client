@@ -73,7 +73,7 @@ const MyBookings = () => {
                                     <td>{booking.totalCost}</td>
                                     <td className='border-box'>
                                         {
-                                            booking.approved ? <span className='bg-green-700 px-2 rounded-md'>Approved</span>: 
+                                            booking.approved ? <span className='bg-green-700 px-2 rounded-md text-white'>Approved</span>: 
                                                 <span className='bg-red-100 px-2 rounded-md '>Pending...</span>
 
                                         }
