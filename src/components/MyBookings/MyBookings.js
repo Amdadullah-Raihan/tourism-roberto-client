@@ -6,18 +6,23 @@ const MyBookings = () => {
     useTitle("My Bookings - Roberto")
     const { user, isLoading } = useFirebase();
     const [MyBookings, setMyBookings] = useState([])
-    console.log(user.email);
+ 
+    console.log(isLoading);
 
-    console.log(MyBookings);
+ 
     // get bookings according to the user
     useEffect(() => {
+        if(isLoading){
+            return;
+        }
         const url = `https://tourism-roberto-server.vercel.app/my-bookings?email=${user?.email}`
+        console.log(user.email);
         fetch(url)
             .then(res => res.json())
             .then(bookings => {
                 setMyBookings(bookings)
             })
-    }, [])
+    }, [isLoading])
 
     //handle booking cancel
     const handleCancelBooking = (id) => {
