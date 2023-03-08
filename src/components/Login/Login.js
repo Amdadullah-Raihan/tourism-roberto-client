@@ -6,7 +6,7 @@ import useFirebase from '../../hooks/useFirebase'
 
 const Login = () => {
 
-    const { user, handleGoogleSignIn, setUser, errorMsg, setErrorMsg, logInUsingEmailPass } = useFirebase();
+    const { user, handleGoogleSignIn, setUser, errorMsg, setErrorMsg, logInUsingEmailPass, setIsLoading} = useFirebase();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
 
@@ -15,6 +15,7 @@ const Login = () => {
             .then(result => {
                 setUser(result.user)
                 // navigate(redirect_uri)
+                setIsLoading(false)
             })
     }
     //handle log in by email and password

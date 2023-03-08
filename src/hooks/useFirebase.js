@@ -13,6 +13,7 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
+    const [isLoading, setIsLoading] = useState(true)
 
 
 
@@ -56,6 +57,7 @@ const useFirebase = () => {
             
                 const user = userCredential.user;
                 setUser(user)
+                setIsLoading(false)
                 setErrorMsg('')
                
             })
@@ -71,6 +73,7 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
+                setIsLoading(false)
 
             } else {
                 setUser({})
@@ -87,7 +90,9 @@ const useFirebase = () => {
         handleGoogleSignIn,
         handleSignOut,
         createUserUsingEmailPass,
-        logInUsingEmailPass
+        logInUsingEmailPass,
+        isLoading,
+        setIsLoading
     }
 
 
