@@ -40,7 +40,7 @@ const ManageBookings = () => {
  
             setIsApproved(!approved)
       
-        const url = `http://localhost:5000/manage-bookings/${id}`;
+        const url = `https://tourism-roberto-server.vercel.app/manage-bookings/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
