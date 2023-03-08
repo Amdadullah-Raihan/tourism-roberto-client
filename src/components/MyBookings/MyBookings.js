@@ -6,13 +6,13 @@ const MyBookings = () => {
     useTitle("My Bookings - Roberto")
     const { user, isLoading } = useFirebase();
     const [MyBookings, setMyBookings] = useState([])
- 
+
     console.log(isLoading);
 
- 
+
     // get bookings according to the user
     useEffect(() => {
-        if(isLoading){
+        if (isLoading) {
             return;
         }
         const url = `https://tourism-roberto-server.vercel.app/my-bookings?email=${user?.email}`
@@ -57,6 +57,7 @@ const MyBookings = () => {
                             <th>Check in</th>
                             <th>Check out</th>
                             <th>Cost</th>
+                            <th>Status</th>
                             <th>Action</th>
 
                         </tr>
@@ -70,6 +71,13 @@ const MyBookings = () => {
                                     <td>{booking.checkin}</td>
                                     <td>{booking.checkout}</td>
                                     <td>{booking.totalCost}</td>
+                                    <td className='border-box'>
+                                        {
+                                            booking.approved ? <span className='bg-green-700 px-2 rounded-md'>Approved</span>: 
+                                                <span className='bg-red-100 px-2 rounded-md '>Pending...</span>
+
+                                        }
+                                    </td>
                                     <td><label className='text-red-500 font-semibold' htmlFor='my-modal'>Cancel</label></td>
                                     <input type="checkbox" id="my-modal" className="modal-toggle" />
                                     <div className="modal">

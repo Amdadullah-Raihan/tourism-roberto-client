@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 
 const ManageBookings = () => {
 
-    const [bookings, setBookings] = useState([])
+    const [bookings, setBookings] = useState([]);
+    const [isApproved, setIsApproved] = useState(false)
 
 
     //getting all bookings 
@@ -45,6 +46,7 @@ const ManageBookings = () => {
                             <th>Room Title</th>
                             <th>Check in</th>
                             <th>Check Out</th>
+                            <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -58,6 +60,17 @@ const ManageBookings = () => {
                                     <td>{booking.roomTitle}</td>
                                     <td>{booking.checkin}</td>
                                     <td>{booking.checkout}</td>
+                                    <td className='border-box'>
+                                        {
+                                            isApproved ? <button onClick={()=>setIsApproved(!isApproved)}>
+                                                <span className='bg-green-700 px-2 text-white rounded-md'>Approved</span> 
+                                            </button>:
+                                                <button onClick={() => setIsApproved(!isApproved)}>
+                                                    <span className='bg-red-100 px-2 rounded-md '>Pending...</span>
+                                               </button>
+
+                                        }
+                                    </td>
                                     <td><label className='text-red-500 font-semibold' htmlFor='my-modal'>Cancel</label></td>
                                     <input type="checkbox" id="my-modal" className="modal-toggle" />
                                     <div className="modal">
