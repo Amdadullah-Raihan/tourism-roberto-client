@@ -4,6 +4,7 @@ import useTitle from '../../hooks/useTitle';
 import CreateBlog from './CreateBlog';
 import AddRooms from './AddRooms';
 import ManageRooms from './ManageRooms';
+import ManageBookings from './ManageBookings';
 
 const Dashboard = () => {
     useTitle("Admin Dashboard -Roberto")
@@ -19,6 +20,13 @@ const Dashboard = () => {
     return (
         <div className='flex h-full'>
             <div className='dashboard-left flex flex-col w-[25vw] mt-6 leading-10 text-start p-12'>
+                <NavLink
+                    to='/dashboard/manage-bookings'
+                    style={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                    }>
+                    <i className="fa-solid fa-sliders mr-2"></i> Manage Bookings
+                </NavLink>
                 <NavLink
                     to='/dashboard/create-blog'
                     style={({ isActive }) =>
@@ -45,7 +53,8 @@ const Dashboard = () => {
             </div>
             <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>
                 <Routes>
-                    <Route path='/' element={<CreateBlog />} />
+                    <Route path='/' element={<ManageBookings/>} />
+                    <Route path='/manage-bookings' element={<ManageBookings/>} />
                     <Route path='/add-room' element={<AddRooms />} />
                     <Route path='/create-blog' element={<CreateBlog/>} />
                     <Route path='/manage-rooms' element={<ManageRooms />} />
