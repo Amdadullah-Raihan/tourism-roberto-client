@@ -178,7 +178,7 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end invisible md:visible">
                     <NavLink to="/rooms"
                         style={({ isActive }) =>
                             isActive ? activeStyle : undefined
@@ -187,7 +187,7 @@ const Header = () => {
                 {
                     user.email && <div className="dropdown dropdown-end ">
 
-                        <label tabIndex={0} className="btn border-none p-0 bg-white ml-3 rounded-full">
+                        <label tabIndex={0} className="btn border-none p-0 bg-white w-12 ml-3 rounded-full">
                             <img src={user.photoURL} alt="user" className='rounded-full w-full' />
                         </label>
 
