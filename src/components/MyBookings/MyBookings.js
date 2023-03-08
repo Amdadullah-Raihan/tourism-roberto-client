@@ -10,7 +10,7 @@ const MyBookings = () => {
     console.log(MyBookings);
     // get bookings according to the user
     useEffect(()=>{
-        const url = 'http://localhost:5000/my-bookings'
+        const url = 'https://tourism-roberto-server.vercel.app/my-bookings'
         fetch(url,{
             method: 'POST',
             headers: {
@@ -26,7 +26,7 @@ const MyBookings = () => {
 
     //handle booking cancel
     const handleCancelBooking = (id) => {
-        const url = 'http://localhost:5000/delete-booking'
+        const url = 'https://tourism-roberto-server.vercel.app/delete-booking'
         fetch(url, {
             method: 'DELETE',
             headers: {

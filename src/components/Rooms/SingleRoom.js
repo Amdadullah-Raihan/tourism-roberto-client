@@ -62,7 +62,7 @@ const SingleRoom = () => {
         };
    
 
-        const url = 'http://localhost:5000/bookings';
+        const url = 'https://tourism-roberto-server.vercel.app/bookings';
         fetch(url, {
             method: 'POST',
             headers: {
