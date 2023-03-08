@@ -57,7 +57,8 @@ const SingleRoom = () => {
             'roomTitle': room.title,
             'checkin': checkin,
             "checkout": checkOut,
-            "totalCost": totalCost
+            "totalCost": totalCost,
+            "approved": false,
 
         };
    

@@ -3,18 +3,20 @@ import React, { useEffect, useState } from 'react'
 const ManageBookings = () => {
 
     const [bookings, setBookings] = useState([]);
-    const [isApproved, setIsApproved] = useState(false)
+    const [isApproved, setIsApproved] = useState()
 
 
     //getting all bookings 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://tourism-roberto-server.vercel.app/bookings')
-        .then(res => res.json())
-        .then(bookings => {
-            console.log(bookings);
-            setBookings(bookings);
-        })
-    },[])
+            .then(res => res.json())
+            .then(bookings => {
+                console.log(bookings);
+                setBookings(bookings);
+            })
+    }, [])
+
+    //handle cancel booking
     const handleCancelBooking = (id) => {
         const url = 'https://tourism-roberto-server.vercel.app/delete-booking'
         fetch(url, {
@@ -31,6 +33,30 @@ const ManageBookings = () => {
                     const newBookings = bookings.filter(mybooking => mybooking._id !== id)
                     setBookings(newBookings)
                 };
+            })
+    }
+    //handle update booking status
+    const handleUpdateStatus = (id, approved) => {
+ 
+            setIsApproved(!approved)
+      
+        const url = `http://localhost:5000/manage-bookings/${id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({'approved': isApproved }),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.modifiedCount) {
+                    alert("Status Updated!")
+                }
+                else{
+                    alert("Couldn't update status!")
+                }
             })
     }
 
@@ -52,9 +78,9 @@ const ManageBookings = () => {
                     </thead>
                     <tbody>
                         {
-                            bookings?.map((booking, i)=>
+                            bookings?.map((booking, i) =>
                                 <tr key={booking._id}>
-                                    <th>{i+1}</th>
+                                    <th>{i + 1}</th>
                                     <td>{booking.userName}</td>
                                     <td>{booking.userEmail}</td>
                                     <td>{booking.roomTitle}</td>
@@ -62,35 +88,40 @@ const ManageBookings = () => {
                                     <td>{booking.checkout}</td>
                                     <td className='border-box'>
                                         {
-                                            isApproved ? <button onClick={()=>setIsApproved(!isApproved)}>
-                                                <span className='bg-green-700 px-2 text-white rounded-md'>Approved</span> 
-                                            </button>:
-                                                <button onClick={() => setIsApproved(!isApproved)}>
+                                            booking.approved ? <button onClick={() => handleUpdateStatus(booking._id, booking.approved)}>
+                                                <span className='bg-green-700 px-2 text-white rounded-md'>Approved</span>
+                                            </button> :
+                                                <button onClick={() => handleUpdateStatus(booking._id)}>
                                                     <span className='bg-red-100 px-2 rounded-md '>Pending...</span>
-                                               </button>
+                                                </button>
 
                                         }
                                     </td>
-                                    <td><label className='text-red-500 font-semibold' htmlFor='my-modal'>Cancel</label></td>
-                                    <input type="checkbox" id="my-modal" className="modal-toggle" />
-                                    <div className="modal">
-                                        <div className="modal-box">
-                                            <h3 className="font-bold text-lg">Are you sure?</h3>
-                                            <p className="py-4">Do you want to cancel this booking?</p>
-                                            <div>
+                                    <td>
+                                        <label className='text-red-500 font-semibold' htmlFor='my-modal'>Cancel</label>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" id="my-modal" className="modal-toggle" />
+                                        <div className="modal">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg">Are you sure?</h3>
+                                                <p className="py-4">Do you want to cancel this booking?</p>
+                                                <div>
 
-                                            </div>
+                                                </div>
 
-                                            <div className="modal-action">
-                                                <label htmlFor="my-modal" className='bg-red-500 hover:bg-red-400 btn border-none' onClick={() => handleCancelBooking(booking._id)}>Yes!</label>
-                                                <label htmlFor="my-modal" className="btn bg-green-700 border-none">No!</label>
+                                                <div className="modal-action">
+                                                    <label htmlFor="my-modal" className='bg-red-500 hover:bg-red-400 btn border-none' onClick={() => handleCancelBooking(booking._id)}>Yes!</label>
+                                                    <label htmlFor="my-modal" className="btn bg-green-700 border-none">No!</label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </td>
+                                    
                                 </tr>
-                                )
+                            )
                         }
-                        
+
                     </tbody>
 
 
