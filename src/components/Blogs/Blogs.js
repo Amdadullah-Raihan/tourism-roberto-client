@@ -19,7 +19,7 @@ const Blogs = () => {
 
     return (
         <div className='md:p-16'>
-            {
+            {  !blogs.length ? <h3 className='text-3xl'>Loading...</h3> :
                 blogs.map(blog=>
                     
                     <div key={blog._id} className='max-w-[800px] md:flex mb-14'>

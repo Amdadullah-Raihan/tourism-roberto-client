@@ -25,7 +25,7 @@ const Rooms = () => {
     return (
         <div className='container p-6 lg:px-16 lg:py-16 xl:mx-auto min-h-[31vh]'>
           
-            {  
+            {  !rooms.length ? <h3 className='text-3xl'>Loading...</h3> :
                 rooms?.map(room =>
 
                     <div className="md:flex px-0  md:max-w-[800px] rounded-xl md:mb-14 mb-10 bg-teal-50 " key={room._id}>
