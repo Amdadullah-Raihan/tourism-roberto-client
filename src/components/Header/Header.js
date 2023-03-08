@@ -164,7 +164,7 @@ const Header = () => {
 
                         </li>
                         {
-                          !user.email &&  <li>
+                            !user.email && <li>
                                 <NavLink
                                     to="/login"
                                     style={({ isActive }) =>
@@ -203,6 +203,14 @@ const Header = () => {
                                         dashboard
                                     </span>
                                     Dashboard
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to='/my-bookings'>
+                                    <span class="material-symbols-outlined text-teal-500">
+                                        shopping_cart
+                                    </span>
+                                    My Bookings
                                 </Link>
                             </li>
                             <li className='hover:bg-teal-100'>

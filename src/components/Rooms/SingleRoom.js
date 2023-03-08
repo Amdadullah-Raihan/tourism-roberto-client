@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { json, Link, useParams } from 'react-router-dom';
 import CreateMarkUp from '../../hooks/CreateMarkUp';
 import icon1 from '../../images/icons/icon1.png.webp'
 import icon2 from '../../images/icons/icon2.png.webp'
@@ -7,6 +7,9 @@ import icon3 from '../../images/icons/icon3.png.webp'
 import icon4 from '../../images/icons/icon4.png.webp'
 import icon5 from '../../images/icons/icon5.png.webp'
 import icon6 from '../../images/icons/icon6.png.webp'
+import useFirebase from '../../hooks/useFirebase'
+import { data } from 'autoprefixer';
+
 
 const SingleRoom = () => {
 
@@ -14,14 +17,18 @@ const SingleRoom = () => {
     const [room, setRoom] = useState([])
     const [checkin, setCheckin] = useState(new Date())
     const [checkOut, setCheckOut] = useState(new Date())
-    
+    const {user}= useFirebase();
+    const [totalCost, setTotalCost] = useState(0)
+
+ 
+
+
     //calculate difference between checkin and checkout
-    const calculateDateDiff = () =>{
+    const calculateDateDiff = () => {
         const date1 = new Date(checkin);
         const date2 = new Date(checkOut);
         const diffTime = Math.abs(date2 - date1);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-       
         return (diffDays);
     }
 
@@ -33,11 +40,42 @@ const SingleRoom = () => {
             .then(room => {
                 setRoom(room)
             })
-    }, [])
+    }, [id])
 
     //handle booking 
-    const handleBooking = (e) =>{
+    const handleBooking = (e) => {
         e.preventDefault();
+
+        setTotalCost(calculateDateDiff()*room.pricePerDay);
+        if(totalCost === 0){
+            alert('Please insert data')
+            return
+        }
+        const data = {
+            'userName': user.displayName,
+            'userEmail': user.email,
+            'roomId': room._id,
+            'checkin': checkin,
+            "checkout": checkOut,
+            "totalCost": totalCost
+
+        };
+   
+
+        const url = 'http://localhost:5000/bookings';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },  
+            body: JSON.stringify(data)
+        })
+        .then(res=> res.json())
+        .then(result => {
+           if(result.insertedId){
+            alert("Successfully booked your room")
+           }
+        })
     }
 
     return (
@@ -114,11 +152,11 @@ const SingleRoom = () => {
                 </div>
                 <form className='text-start m-6 md:m-0 border p-6 ' onSubmit={e => handleBooking(e)}>
                     <label htmlFor="">Check in</label><br />
-                    <input type="date" className='border px-4 py-2 w-full mb-4' id='checkin' onChange={e=> setCheckin(e.target.value)}/>
+                    <input type="date" className='border px-4 py-2 w-full mb-4' id='checkin' onChange={e => setCheckin(e.target.value)} required />
                     <label htmlFor="">Check Out</label>
-                    <input type="date" className='border px-4 py-2 w-full' onChange={e => setCheckOut(e.target.value)} />
+                    <input type="date" className='border px-4 py-2 w-full' onChange={e => setCheckOut(e.target.value)} required />
                     <h3 className='mt-4 text-2xl'>Total Price: ${room.pricePerDay * parseInt(calculateDateDiff())}</h3>
-                    <input type="submit" name="" id="" value='book this room' className='mt-8 btn w-full rounded-full bg-teal-500 border-none' />
+                    <input type="submit" name="" id="" value='book this room' className='mt-8 btn w-full rounded-full bg-teal-500 border-none' onClick={handleBooking} />
 
                 </form>
             </div>

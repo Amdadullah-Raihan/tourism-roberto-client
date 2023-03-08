@@ -20,6 +20,7 @@ import ContactComponent from './components/Contact/ContactComponent';
 import SingleBlog from './components/Blogs/SingleBlog';
 import Login from './components/Login/Login';
 import SignUp from './components/Login/SignUp';
+import MyBookings from './components/MyBookings/MyBookings';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 
         <Route path='/rooms/:id' element={<PrivateRoute><SingleRoom /></PrivateRoute>} />
         <Route path='/dashboard/*'  element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+        <Route path='/my-bookings'  element={<PrivateRoute><MyBookings/></PrivateRoute>} />
 
         {/* private routes ends */}
 
