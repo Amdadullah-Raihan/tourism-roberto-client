@@ -52,10 +52,10 @@ const ManageBookings = () => {
             .then(result => {
                 console.log(result);
                 if (result.modifiedCount) {
-                    alert("Status Updated!")
+                    alert("Status Updated! Please Reload!")
                 }
                 else{
-                    alert("Couldn't update status!")
+                    alert("Couldn't update status! Please Reload")
                 }
             })
     }
@@ -63,9 +63,9 @@ const ManageBookings = () => {
     return (
         <div>
             <div className="overflow-x-auto border">
-                <table className="table table-compact w-full">
+                <table className="table w-full table-compact ">
                     <thead>
-                        <tr>
+                        <tr className=''>
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
@@ -79,7 +79,7 @@ const ManageBookings = () => {
                     <tbody>
                         {
                             bookings?.map((booking, i) =>
-                                <tr key={booking._id}>
+                                <tr key={booking._id} className="hover">
                                     <th>{i + 1}</th>
                                     <td>{booking.userName}</td>
                                     <td>{booking.userEmail}</td>

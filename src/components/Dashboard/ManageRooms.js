@@ -39,7 +39,7 @@ const ManageRooms = () => {
     <div>
 
       <div className="overflow-x-auto">
-        <table className="table w-full">
+        <table className="table w-full table-compact">
           {/* head */}
           <thead>
             <tr>

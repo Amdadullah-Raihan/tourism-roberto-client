@@ -18,8 +18,8 @@ const Dashboard = () => {
     let activeClassName = "underline";
 
     return (
-        <div className='flex h-full'>
-            <div className='dashboard-left flex flex-col w-[25vw] mt-6 leading-10 text-start p-12'>
+        <div className='flex flex-col md:flex-row h-full'>
+            <div className='grid md:max-h-[100px] grid-cols-2 md:grid-cols-1 gap-x-6 md:gap-y-0 gap-y-4 md:w-[25vw] md:mt-6 md:leading-10 text-start md:p-12 p-4 mx-auto h-auto'>
                 <NavLink
                     to='/dashboard/manage-bookings'
                     style={({ isActive }) =>
@@ -51,7 +51,7 @@ const Dashboard = () => {
                 
 
             </div>
-            <div className='dashboard-right bg-blue-50 w-[75vw] h-[100vh]  mt-4 px-6 py-8'>
+            <div className='dashboard-right bg-blue-50 md:w-[75vw] h-[100vh]  mt-4 md:px-6 md:py-8 p-4'>
                 <Routes>
                     <Route path='/' element={<ManageBookings/>} />
                     <Route path='/manage-bookings' element={<ManageBookings/>} />

@@ -60,7 +60,8 @@ const CreateBlog = () => {
         const blogData = {
             "title":title,
             "imgUrl":imgUrl,
-            "content":content
+            "content":content,
+            "summary": data.summary,
         }
         console.log(blogData);
         const url = 'https://tourism-roberto-server.vercel.app/create-blog'
@@ -97,24 +98,23 @@ const CreateBlog = () => {
 
 
     return (
-        <div className='xl:flex gap-12' >
+        <div className='xl:flex gap-12 h-full' >
 
-          
-            <div className='bg-white w-full  rounded-2xl max-w-[900px] '>
+            <div className='bg-white w-full rounded-2xl max-w-[900px]'>
                 <h1 className='text-2xl uppercase text-teal-500 font-semibold pt-6'> Create a Blog </h1>
-                <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
+                <form onSubmit={handleSubmit(onSubmit)} className='md:p-12 p-4 md:leading-10'>
                         
-                    <div className='flex gap-4'>
-                        <input onChange={(e)=>setTitle(e.target.value)} className='border px-4 w-full mb-4 h-12 rounded-md' {...register("title")} required placeholder='Write your blog title' /> <br />
-                        {/* <input className='border px-4 w-full mb-4 h-12 ' {...register("lastName")} required /> */}
-                        {/* <br /> */}
+                    <div className='my-10'>
+                        <input onChange={(e)=>setTitle(e.target.value)} className='border px-4 w-full mb-4 h-12 rounded-md' {...register("title")} required placeholder='Write your blog title'/> <br />
+                        <input className='border px-4 w-full mb-4 h-12 ' {...register("summary")} required placeholder="write your blog's summary " />
+                         <br /> 
                         <input type="file" className="file-input file-input-bordered w-full " accept='imgages/*' onChange={handleImgChange} />
                     </div>
-                    <div className='h-full w-full mb-4 text-start'>
+                    <div className='h-full w-full md:mb-4 text-start'>
                         <header className='font-semibold uppercase  text-start'>Add Blog's Content</header>
                         
                             <ReactQuill
-                           
+                            className='overflow-scroll md:overflow-auto'
                             modules={modules}
                             formats={formates}
                             value={content}
@@ -128,8 +128,8 @@ const CreateBlog = () => {
 
                     </div>
 
-                    <div className='text-end'>
-                        <input className='btn border-none rounded-none bg-teal-400 text-white px-4 w-52 mb-4 h-12 cursor-pointer  ' type="submit" />
+                    <div className='md:text-end'>
+                        <input className='btn border-none rounded-none bg-teal-400 text-white px-4 w-52 mb-4 h-12 cursor-pointer md:w-40  w-full' type="submit" />
 
                     </div>
 

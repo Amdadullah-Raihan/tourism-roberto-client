@@ -113,17 +113,17 @@ const CreateBlog = () => {
         <div className='xl:flex gap-12' >
 
 
-            <div className='bg-white w-full  rounded-2xl max-w-[900px] '>
+            <div className='bg-white w-full  rounded-2xl max-w-[900px]'>
                 <h1 className='text-2xl uppercase text-teal-500 font-semibold pt-6 '> Add a Room </h1>
-                <form onSubmit={handleSubmit(onSubmit)} className='p-12 leading-10'>
+                <form onSubmit={handleSubmit(onSubmit)} className='md:p-12 p-4 leading-10'>
 
-                    <div className='grid grid-cols-2 gap-4'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mb-6'>
                         <input  className='border px-4 w-full  h-12 rounded-md' {...register("title")} required placeholder="Enter Room's Title " /> 
                         <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("pricePerDay")} required placeholder="Enter Room's price per day" /> 
                         <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("roomSize")} required placeholder="Enter Room's in square feet" /> 
                         <input  className='border px-4 w-full  h-12 rounded-md' type="number" {...register("capacity")} required placeholder="Enter Room's capacity " /> 
                         <input  className='border px-4 w-full  h-12 rounded-md' {...register("bedType")} required placeholder="Enter Room's bed type" /> 
-                        <input  className='border px-4 w-full  h-12 rounded-md' {...register("roomServices")} required placeholder="Enter Room's services" /> 
+                       
                        
                         <input type="file" className="file-input file-input-bordered w-full " accept='imgages/*' onChange={handleImgChange} />
                     </div>
