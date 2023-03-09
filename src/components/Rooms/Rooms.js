@@ -28,7 +28,7 @@ const Rooms = () => {
             {  !rooms.length ? <h3 className='text-3xl'>Loading...</h3> :
                 rooms?.map(room =>
 
-                    <div className="md:flex px-0  md:max-w-[800px] rounded-xl md:mb-14 mb-10 bg-teal-50 " key={room._id}>
+                    <div className="md:grid md:grid-cols-2 grid-cols-1 px-0  md:max-w-[800px] rounded-xl md:mb-14 mb-10 bg-teal-50 " key={room._id}>
                        
                         <div className='bg-cover w-full md:w-auto'>
                             <img src={room.imgUrl} alt="" className='w-[100%] overflow-hidden md:rounded-l-xl rounded-t-2xl ' />
