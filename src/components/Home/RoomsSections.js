@@ -55,7 +55,7 @@ export const RoomsSections = () => {
 
 
     return (
-        <div className='w-full h-full my-16 container mx-auto relative duration-1000 ease-in max-h-[1000px]'>
+        <div className='w-full h-full mt-16 container mx-auto relative duration-1000 ease-in max-h-[1000px]'>
             {/* slide */}
             <div className=' w-full min-h-[500px]  grid grid-cols-1 md:grid-cols-2 relative z-0'>
                 {/* slide's left img */}

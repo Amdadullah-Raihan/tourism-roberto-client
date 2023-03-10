@@ -7,25 +7,25 @@ const OfferingsSection = () => {
       <div className='w-full mx-auto mb-16'>
         <div className="carousel w-full">
           <div className="carousel-item">
-              <img src={img1}alt="Burger" className='w-full' />
+              <img src={img1} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img2}alt="Burger" className='w-full' />
+              <img src={img2} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img1}alt="Burger" className='w-full' />
+              <img src={img1} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img2}alt="Burger" className='w-full' />
+              <img src={img2} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img1}alt="Burger" className='w-full' />
+              <img src={img1} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img2}alt="Burger" className='w-full' />
+              <img src={img2} alt="Burger" className='w-full' />
           </div>
           <div className="carousel-item">
-              <img src={img1}alt="Burger" className='w-full' />
+              <img src={img1} alt="Burger" className='w-full' />
           </div>
          
       </div>
