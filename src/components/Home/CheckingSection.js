@@ -17,7 +17,7 @@ const CheckingSection = () => {
                     <input className='border h-12 px-4 ' defaultValue="Check In" {...register("check-in")} />
 
                     {/* include validation with required or other standard HTML validation rules */}
-                    <input className='border h-12 px-4' defaultValue="Check out" {...register("check-out", { required: true })} />
+                    <input className='border h-12 px-4' type='date'defaultValue="Check out" {...register("check-out", { required: true })} />
                     {/* errors will return when field validation fails  */}
                     <select defaultValue="Check out" {...register("rooms")} className='border h-12 px-4'>
                         <option value="1">Rooms</option>

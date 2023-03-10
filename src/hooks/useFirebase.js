@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import initializeAuthentication from '../firebase/firebase.init';
 
 
@@ -52,15 +52,15 @@ const useFirebase = () => {
             });
     }
     //log in user by email and pass
-    const logInUsingEmailPass = (email, password) =>{
+    const logInUsingEmailPass = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-            
+
                 const user = userCredential.user;
                 setUser(user)
                 setIsLoading(false)
                 setErrorMsg('')
-               
+
             })
             .catch((error) => {
                 // const errorCode = error.code;
@@ -75,6 +75,11 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
                 setIsLoading(false)
+                getIdToken(user)
+                    .then(idToken => {
+                      
+                        localStorage.setItem('idToken', idToken)
+                    })
 
             } else {
                 setUser({})

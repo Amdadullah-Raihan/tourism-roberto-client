@@ -12,7 +12,7 @@ const Blogs = () => {
         fetch("https://tourism-roberto-server.vercel.app/blogs")
         .then(res=> res.json())
         .then(blogs => {
-            console.log(blogs);
+          
             setBlogs(blogs)
         })
     },[])

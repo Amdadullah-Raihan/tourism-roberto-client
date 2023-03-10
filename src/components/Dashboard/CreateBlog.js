@@ -24,7 +24,7 @@ const CreateBlog = () => {
        const formData = new FormData();
 
        formData.append('image',img)
-       console.log(formData);
+  
        
        const url = "https://api.imgbb.com/1/upload?&key=8484f85b7788ffca18f1fd5d203bc0fa";
 
@@ -72,7 +72,7 @@ const CreateBlog = () => {
         })
         .then(res=>res.json())
         .then(result=>{
-            console.log(result);
+      
             if (result.insertedId){
                 alert("Blog posted successfully!!")
                 // <div className="toast toast-start">

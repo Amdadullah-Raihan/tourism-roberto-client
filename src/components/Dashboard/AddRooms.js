@@ -31,7 +31,7 @@ const CreateBlog = () => {
         const formData = new FormData();
 
         formData.append('image', img)
-        console.log(formData);
+     
 
         const url = "https://api.imgbb.com/1/upload?&key=8484f85b7788ffca18f1fd5d203bc0fa";
 
@@ -79,7 +79,7 @@ const CreateBlog = () => {
             "imgUrl": imgUrl,
             "content": content
         }
-        console.log(blogData);
+    
         const url = 'https://tourism-roberto-server.vercel.app/create-room'
         fetch(url, {
             method: "POST",
@@ -88,7 +88,7 @@ const CreateBlog = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                
                 if (result.insertedId) {
                     alert("Room added successfully!!")
                     // <div className="toast toast-start">

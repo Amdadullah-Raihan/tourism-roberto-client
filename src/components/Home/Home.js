@@ -4,8 +4,8 @@ import AboutSection from './AboutSection';
 import CheckingSection from './CheckingSection';
 import OfferingsSection from './OfferingsSection';
 import HeroSection from './HeroSection';
-import RoomSection from './RoomSection';
 import TestimonialsSection from './TestimonialsSection';
+import { RoomsSections } from './RoomsSections';
 
 
 const Home = () => {
@@ -17,7 +17,8 @@ const Home = () => {
             <HeroSection/>
             <CheckingSection/>
             <AboutSection/>
-            <RoomSection/>
+       
+            <RoomsSections/>
             <TestimonialsSection/>
             <OfferingsSection />
           

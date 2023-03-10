@@ -5,14 +5,14 @@ import { useParams } from 'react-router-dom';
 const SingleBlog = () => {
     const [blog, setBlog] = useState([])
     const {id} = useParams();
-    console.log(id);
+  
 
     useEffect(()=>{
         const url = `https://tourism-roberto-server.vercel.app/blogs/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(blog=> {
-            console.log(blog);
+         
             setBlog(blog)
         })
 
