@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const CheckingSection = () => {
 
-
+    
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
@@ -14,12 +14,13 @@ const CheckingSection = () => {
             <div className=' mx-4 bg-[#fff] px-6 shadow-lg min-h-[180px] md:mt-[-90px] relative lg:container w-full flex items-center justify-center py-6 mt-[-115px] '>
                 <form onSubmit={handleSubmit(onSubmit)} className='grid gap-4 md:grid-cols-6 grid-cols-2'>
                     {/* register your input into the hook by invoking the "register" function */}
-                    <input className='border h-12 px-4 ' defaultValue="Check In" {...register("check-in")} />
+                    <input className='border h-12 px-4 ' defaultValue="Check In" {...register("check-in")} type='text' value='Check in' required/>
 
                     {/* include validation with required or other standard HTML validation rules */}
-                    <input className='border h-12 px-4' type='date'defaultValue="Check out" {...register("check-out", { required: true })} />
+                    <input className='border h-12 px-4' type='text' defaultValue="Check out" {...register("check-out", { required: true })} required/>
+
                     {/* errors will return when field validation fails  */}
-                    <select defaultValue="Check out" {...register("rooms")} className='border h-12 px-4'>
+                    <select defaultValue="rooms" {...register("rooms")} className='border h-12 px-4'>
                         <option value="1">Rooms</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
