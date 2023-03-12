@@ -11,7 +11,7 @@ const CheckingSection = () => {
     };
 
     // const handleCheck = () =>{
-    //     fetch(`http://localhost:5000/bookings`)
+    //     fetch(`https://tourism-roberto-server.vercel.app/bookings`)
     //     .then(res=> res.json())
     //     .then(rooms => {
     //         const filteredRooms = rooms.filter(booking => booking.approved === false)

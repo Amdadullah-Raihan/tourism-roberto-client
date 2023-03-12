@@ -15,7 +15,7 @@ const MyBookings = () => {
         if (isLoading) {
             return;
         }
-        const url = `http://localhost:5000/my-bookings?email=${user?.email}`
+        const url = `https://tourism-roberto-server.vercel.app/my-bookings?email=${user?.email}`
         console.log(user.email);
         fetch(url)
             .then(res => res.json())
