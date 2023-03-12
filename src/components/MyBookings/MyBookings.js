@@ -15,14 +15,18 @@ const MyBookings = () => {
         if (isLoading) {
             return;
         }
-        const url = `https://tourism-roberto-server.vercel.app/my-bookings?email=${user?.email}`
+        const url = `http://localhost:5000/my-bookings?email=${user?.email}`
         console.log(user.email);
         fetch(url)
             .then(res => res.json())
             .then(bookings => {
                 setMyBookings(bookings)
             })
-    }, [isLoading])
+            .catch(err =>{
+                alert(err.message)
+            })
+            
+    }, [isLoading, user.email])
 
     //handle booking cancel
     const handleCancelBooking = (id) => {
@@ -73,7 +77,7 @@ const MyBookings = () => {
                                     <td>{booking.totalCost}</td>
                                     <td className='border-box'>
                                         {
-                                            booking.approved ? <span className='bg-green-700 px-2 rounded-md text-white'>Approved</span>: 
+                                            booking.approved ? <span className='bg-green-700 px-2 rounded-md text-white'>Approved</span> :
                                                 <span className='bg-red-100 px-2 rounded-md '>Pending...</span>
 
                                         }

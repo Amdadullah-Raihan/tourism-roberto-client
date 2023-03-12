@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { createUserWithEmailAndPassword, getAuth, getIdToken, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import initializeAuthentication from '../firebase/firebase.init';
 
 
@@ -13,7 +13,8 @@ const useFirebase = () => {
 
     const [user, setUser] = useState({});
     const [errorMsg, setErrorMsg] = useState('');
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
+
 
 
 
@@ -75,11 +76,6 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
                 setIsLoading(false)
-                getIdToken(user)
-                    .then(idToken => {
-                      
-                        localStorage.setItem('idToken', idToken)
-                    })
 
             } else {
                 setUser({})
