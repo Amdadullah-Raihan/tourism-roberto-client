@@ -3,11 +3,22 @@ import { useForm } from 'react-hook-form';
 
 const CheckingSection = () => {
 
+    // const [rooms, setRooms] = useState([])
     
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
     };
+
+    // const handleCheck = () =>{
+    //     fetch(`http://localhost:5000/bookings`)
+    //     .then(res=> res.json())
+    //     .then(rooms => {
+    //         const filteredRooms = rooms.filter(booking => booking.approved === false)
+    //             console.log(filteredRooms);
+    //             setRooms(filteredRooms)
+    //     })
+    // }
 
     return (
         <div className="flex w-full justify-center">
@@ -48,9 +59,20 @@ const CheckingSection = () => {
                         <option value="6">6</option>
                     </select>
 
-                    <input className='btn border-none rounded-none h-12 px-4 bg-[#1CC3B2] text-white font-semibold ' type="submit" value='Check Availibility' />
+                    <input className='btn border-none rounded-none h-12 px-4 bg-[#1CC3B2] text-white font-semibold ' type="submit" value='Check Availibility'/>
                 </form>
             </div>
+            <br />
+            {/* <div className=''>
+                {
+                    rooms?.map(room => 
+                        <div>
+                            {room.title}
+                        </div>
+                        
+                        )
+                }
+            </div> */}
         </div>
     );
 };

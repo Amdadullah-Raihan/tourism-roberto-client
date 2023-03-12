@@ -49,7 +49,7 @@ export const RoomsSections = () => {
         }, 3000);
 
         return () => clearInterval(intervalId);
-    }, [currentIdx]);
+    }, [currentIdx, rooms]);
 
 
 
