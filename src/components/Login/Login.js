@@ -43,7 +43,7 @@ const Login = () => {
                     <p className='text-red-500'>{errorMsg}</p>
                     <p className='text-gray-500'>Don't have an account? <Link className='text-blue-500 underline' to='/signUp'>Register</Link></p> <br />
 
-                    <input type="submit" value="Login " className='btn  px-12 rounded-full bg-teal-500 border-none' />
+                    <input type="submit" value="Login " className='btn  px-12 rounded-full bg-teal-500 border-none w-full' />
 
                     <div className="divider ">OR</div>
 
